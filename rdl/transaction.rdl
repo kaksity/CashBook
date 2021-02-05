@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Description>
+  </Description>
+  <Author>
+  </Author>
+  <PageHeight>8.27in</PageHeight>
+  <PageWidth>11.69in</PageWidth>
+  <DataSources>
+    <DataSource Name="DS1">
+      <ConnectionProperties>
+        <DataProvider>Firebird.NET 2.0</DataProvider>
+        <ConnectString>database=cashbook;server=localhost;user=SYSDBA;password=masterkey</ConnectString>
+      </ConnectionProperties>
+    </DataSource>
+  </DataSources>
+  <Width>7.5in</Width>
+  <TopMargin>.25in</TopMargin>
+  <LeftMargin>.25in</LeftMargin>
+  <RightMargin>.25in</RightMargin>
+  <BottomMargin>.25in</BottomMargin>
+  <PageHeader>
+    <Height>134.5pt</Height>
+    <PrintOnFirstPage>true</PrintOnFirstPage>
+    <PrintOnLastPage>true</PrintOnLastPage>
+    <ReportItems>
+      <Textbox Name="Textbox1">
+        <Height>29.36pt</Height>
+        <Width>731.88pt</Width>
+        <Value>=Parameters!Organization.Value</Value>
+        <ZIndex>1</ZIndex>
+        <Left>75.70pt</Left>
+        <Top>7.40pt</Top>
+        <Style>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <FontSize>20pt</FontSize>
+          <TextAlign>Center</TextAlign>
+          <FontWeight>Bold</FontWeight>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox2" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>30.13pt</Height>
+        <Width>731.49pt</Width>
+        <Value>=Parameters!Title.Value</Value>
+        <ZIndex>1</ZIndex>
+        <Left>75.80pt</Left>
+        <Top>47.80pt</Top>
+        <Style>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <FontSize>20pt</FontSize>
+          <TextAlign>Center</TextAlign>
+          <FontWeight>Bold</FontWeight>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox12" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+        <Height>33.15pt</Height>
+        <Width>731.04pt</Width>
+        <Value>=Parameters!Account.Value</Value>
+        <ZIndex>1</ZIndex>
+        <Left>75.90pt</Left>
+        <Top>86.40pt</Top>
+        <Style>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+          <FontSize>20pt</FontSize>
+          <TextAlign>Center</TextAlign>
+          <FontWeight>Bold</FontWeight>
+        </Style>
+      </Textbox>
+    </ReportItems>
+  </PageHeader>
+  <Body>
+    <ReportItems>
+      <Table Name="Table1">
+        <DataSetName>Data</DataSetName>
+        <NoRows>Query returned no rows!</NoRows>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+        <TableColumns>
+          <TableColumn>
+            <Width>89.9pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>56.0pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>59.0pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>65.6pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>123.4pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>90.6pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>93.1pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>117.9pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>108.2pt</Width>
+          </TableColumn>
+        </TableColumns>
+        <Header>
+          <TableRows>
+            <TableRow>
+              <Height>47.4pt</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox3">
+                      <Value>DATE OF TRANSACTION</Value>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <FontSize>11pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox4">
+                      <Value>PV/RV NUMBER</Value>
+                      <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                        <TextAlign>Center</TextAlign>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <FontSize>11pt</FontSize>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox5">
+                      <Value>REF NUMBER</Value>
+                      <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                        <TextAlign>Center</TextAlign>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <FontSize>11pt</FontSize>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox6">
+                      <Value>SUB HEAD COLUMN</Value>
+                      <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                        <TextAlign>Center</TextAlign>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <FontSize>11pt</FontSize>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox7">
+                      <Value>NAME - BENEFICIARY</Value>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <FontSize>11pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox8">
+                      <Value>DESCRIPTION OF TRANSACTION</Value>
+                      <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                        <TextAlign>Center</TextAlign>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <FontSize>11pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox9">
+                      <Value>DR - RECEIPTS</Value>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <FontSize>11pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox10">
+                      <Value>CREDIT - PAYMENTS</Value>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <FontSize>11pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox11">
+                      <Value>CUMM. BALANCE</Value>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <FontSize>11pt</FontSize>
+                        <BorderColor />
+                        <BorderWidth />
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+          <RepeatOnNewPage>true</RepeatOnNewPage>
+        </Header>
+        <Details>
+          <TableRows>
+            <TableRow>
+              <Height>20.7pt</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="AMMOUNT_WITHDRAWN">
+                      <Value>=Format(Fields!DATE_OF_TRANSACTION.Value, "dd-MM-yyyy")</Value>
+                      <CanGrow>true</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <FontSize>11pt</FontSize>
+                        <FontWeight>Lighter</FontWeight>
+                        <BorderColor />
+                        <BorderWidth />
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox14">
+                      <Value>=Fields!PV_OR_RV_NUMBER.Value</Value>
+                      <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <FontSize>11pt</FontSize>
+                        <FontWeight>Lighter</FontWeight>
+                        <BorderColor />
+                        <BorderWidth />
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="INITIAL_BALANCE">
+                      <Value>=Fields!REF_NUMBER.Value</Value>
+                      <CanGrow>true</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <FontSize>11pt</FontSize>
+                        <FontWeight>Lighter</FontWeight>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox15">
+                      <Value>=Fields!SUBHEAD_COLUMN.Value</Value>
+                      <Style xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <FontSize>11pt</FontSize>
+                        <FontWeight>Lighter</FontWeight>
+                        <BorderColor />
+                        <BorderWidth />
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="NAME_OF_BENEFICIARY">
+                      <Value>=Fields!NAME_OF_BENEFICIARY.Value</Value>
+                      <CanGrow>true</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <FontSize>11pt</FontSize>
+                        <FontWeight>Lighter</FontWeight>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="DATE_OF_TRANSACTION">
+                      <Value>=Fields!ACCOUNT_NUMBER.Value</Value>
+                      <CanGrow>true</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <FontSize>11pt</FontSize>
+                        <FontWeight>Lighter</FontWeight>
+                        <BorderColor />
+                        <BorderWidth />
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="PV_OR_RV_NUMBER">
+                      <Value>=Fields!AMMOUNT_DEPOSITED.Value</Value>
+                      <CanGrow>true</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <FontSize>11pt</FontSize>
+                        <FontWeight>Lighter</FontWeight>
+                        <BorderColor />
+                        <BorderWidth />
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="SUBHEAD_COLUMN">
+                      <Value>=Fields!AMMOUNT_WITHDRAWN.Value</Value>
+                      <CanGrow>true</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <FontSize>11pt</FontSize>
+                        <FontWeight>Lighter</FontWeight>
+                        <BorderColor />
+                        <BorderWidth />
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="DESCRIPTION_OF_TRANSACTION">
+                      <Value>=Fields!FINAL_BALANCE.Value</Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <PaddingRight>2pt</PaddingRight>
+                        <TextAlign>Right</TextAlign>
+                        <FontSize>11pt</FontSize>
+                        <FontWeight>Lighter</FontWeight>
+                        <BorderColor />
+                        <BorderWidth />
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+        </Details>
+        <Left>1.6pt</Left>
+        <Top>32.8pt</Top>
+      </Table>
+      <Textbox Name="Textbox16">
+        <Height>25.05pt</Height>
+        <Width>800.34pt</Width>
+        <Value>=Parameters!opening_balance.Value</Value>
+        <ZIndex>1</ZIndex>
+        <Left>3.0pt</Left>
+        <Top>3.8pt</Top>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+            <Left>Solid</Left>
+            <Right>Solid</Right>
+            <Top>Solid</Top>
+            <Bottom>Solid</Bottom>
+          </BorderStyle>
+          <BorderColor />
+          <BorderWidth />
+          <FontSize>14pt</FontSize>
+        </Style>
+      </Textbox>
+    </ReportItems>
+    <Height>194.0pt</Height>
+    <Columns>1</Columns>
+  </Body>
+  <PageFooter>
+    <Height>19.2pt</Height>
+    <ReportItems>
+      <Textbox Name="Textbox13">
+        <Top>2.6pt</Top>
+        <Left>10.0pt</Left>
+        <Height>12pt</Height>
+        <Width>3in</Width>
+        <Value>=Globals!PageNumber + ' of ' + Globals!TotalPages</Value>
+        <Style>
+          <FontSize>10pt</FontSize>
+          <FontWeight>Normal</FontWeight>
+          <BorderStyle />
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+      </Textbox>
+    </ReportItems>
+    <PrintOnFirstPage>true</PrintOnFirstPage>
+    <PrintOnLastPage>true</PrintOnLastPage>
+  </PageFooter>
+  <DataSets>
+    <DataSet Name="Data">
+      <Query>
+        <DataSourceName>DS1</DataSourceName>
+        <CommandText>SELECT ACCOUNT_NUMBER, AMMOUNT_WITHDRAWN, FINAL_BALANCE, INITIAL_BALANCE, AMMOUNT_DEPOSITED, NAME_OF_BENEFICIARY, DATE_OF_TRANSACTION, PV_OR_RV_NUMBER, SUBHEAD_COLUMN, APPROVED_BY, UKEY, DESCRIPTION_OF_TRANSACTION, REF_NUMBER FROM "TRANSACTIONS                   "</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="ACCOUNT_NUMBER">
+          <DataField>ACCOUNT_NUMBER</DataField>
+          <TypeName>System.String</TypeName>
+        </Field>
+        <Field Name="AMMOUNT_WITHDRAWN">
+          <DataField>AMMOUNT_WITHDRAWN</DataField>
+          <TypeName>System.String</TypeName>
+        </Field>
+        <Field Name="FINAL_BALANCE">
+          <DataField>FINAL_BALANCE</DataField>
+          <TypeName>System.String</TypeName>
+        </Field>
+        <Field Name="INITIAL_BALANCE">
+          <DataField>INITIAL_BALANCE</DataField>
+          <TypeName>System.String</TypeName>
+        </Field>
+        <Field Name="AMMOUNT_DEPOSITED">
+          <DataField>AMMOUNT_DEPOSITED</DataField>
+          <TypeName>System.String</TypeName>
+        </Field>
+        <Field Name="NAME_OF_BENEFICIARY">
+          <DataField>NAME_OF_BENEFICIARY</DataField>
+          <TypeName>System.String</TypeName>
+        </Field>
+        <Field Name="DATE_OF_TRANSACTION">
+          <DataField>DATE_OF_TRANSACTION</DataField>
+          <TypeName>System.String</TypeName>
+        </Field>
+        <Field Name="PV_OR_RV_NUMBER">
+          <DataField>PV_OR_RV_NUMBER</DataField>
+          <TypeName>System.String</TypeName>
+        </Field>
+        <Field Name="SUBHEAD_COLUMN">
+          <DataField>SUBHEAD_COLUMN</DataField>
+          <TypeName>System.String</TypeName>
+        </Field>
+        <Field Name="APPROVED_BY">
+          <DataField>APPROVED_BY</DataField>
+          <TypeName>System.String</TypeName>
+        </Field>
+        <Field Name="UKEY">
+          <DataField>UKEY</DataField>
+          <TypeName>System.Int32</TypeName>
+        </Field>
+        <Field Name="DESCRIPTION_OF_TRANSACTION">
+          <DataField>DESCRIPTION_OF_TRANSACTION</DataField>
+          <TypeName>System.Int32</TypeName>
+        </Field>
+        <Field Name="REF_NUMBER">
+          <DataField>REF_NUMBER</DataField>
+          <TypeName>System.String</TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <DataElementName>Report</DataElementName>
+  <DataElementStyle>AttributeNormal</DataElementStyle>
+  <ReportParameters>
+    <ReportParameter Name="Organization">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Title">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Account">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>
+      </Prompt>
+    </ReportParameter>
+    <ReportParameter Name="opening_balance">
+      <DataType>String</DataType>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt />
+    </ReportParameter>
+  </ReportParameters>
+</Report>

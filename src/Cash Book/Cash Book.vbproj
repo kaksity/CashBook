@@ -1,0 +1,486 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0EB7C6AB-C6BA-4FDE-9A96-EA7763AB8A34}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>Sub Main</StartupObject>
+    <RootNamespace>Cash_Book</RootNamespace>
+    <AssemblyName>Cash Book</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsFormsWithCustomSubMain</MyType>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>..\..\bin-release\</OutputPath>
+    <DocumentationFile>Cash Book.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\bin-release\</OutputPath>
+    <DocumentationFile>Cash Book.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Text</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="crsButton">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Opal Academy Version 3.0\crsButton.dll</HintPath>
+    </Reference>
+    <Reference Include="dbO, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\dll\dbO.dll</HintPath>
+    </Reference>
+    <Reference Include="FirebirdSql.Data.FirebirdClient">
+      <HintPath>..\..\dll\FirebirdSql.Data.FirebirdClient.dll</HintPath>
+    </Reference>
+    <Reference Include="RdlEngine">
+      <HintPath>..\..\dll\RdlEngine.DLL</HintPath>
+    </Reference>
+    <Reference Include="RdlViewer">
+      <HintPath>..\..\dll\RdlViewer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountReporter.vb" />
+    <Compile Include="BankReconcilationReporter.vb" />
+    <Compile Include="Forms\Operations\Accounts\frmRDLViewPrintAccount.Designer.vb">
+      <DependentUpon>frmRDLViewPrintAccount.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Operations\Accounts\frmRDLViewPrintAccount.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Operations\Accounts\frmSearchForAccount.Designer.vb">
+      <DependentUpon>frmSearchForAccount.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Operations\Accounts\frmSearchForAccount.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAboutBox.Designer.vb">
+      <DependentUpon>frmAboutBox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAboutBox.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBackUp.Designer.vb">
+      <DependentUpon>frmBackUp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmBackUp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBankReconcilation.Designer.vb">
+      <DependentUpon>frmBankReconcilation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmBankReconcilation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EZTWAIN.VB" />
+    <Compile Include="Forms\Operations\Accounts\frmAccount.Designer.vb">
+      <DependentUpon>frmAccount.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Operations\Accounts\frmAccount.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAcquire.Designer.vb">
+      <DependentUpon>frmAcquire.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAcquire.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddSupportingDocument.Designer.vb">
+      <DependentUpon>frmAddSupportingDocument.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddSupportingDocument.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCloseFinancialMonth.Designer.vb">
+      <DependentUpon>frmCloseFinancialMonth.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCloseFinancialMonth.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmForgotPassword.Designer.vb">
+      <DependentUpon>frmForgotPassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmForgotPassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGenerateColumns.Designer.vb">
+      <DependentUpon>frmGenerateColumns.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmGenerateColumns.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGenerateReportTransaction.Designer.vb">
+      <DependentUpon>frmGenerateReportTransaction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmGenerateReportTransaction.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.vb">
+      <DependentUpon>frmLogin.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMainMenu.Designer.vb">
+      <DependentUpon>frmMainMenu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMainMenu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMaintainBalanceReport.Designer.vb">
+      <DependentUpon>frmMaintainBalanceReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMaintainBalanceReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOrganization.Designer.vb">
+      <DependentUpon>frmOrganization.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmOrganization.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegisterOrganization.Designer.vb">
+      <DependentUpon>frmRegisterOrganization.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegisterOrganization.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegisterUser.Designer.vb">
+      <DependentUpon>frmRegisterUser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegisterUser.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRestore.Designer.vb">
+      <DependentUpon>frmRestore.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmRestore.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Operations\RevenueRegister\frmRevenueRegister.Designer.vb">
+      <DependentUpon>frmRevenueRegister.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Operations\RevenueRegister\frmRevenueRegister.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSearchAccount.Designer.vb">
+      <DependentUpon>frmSearchAccount.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSearchAccount.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSplashScreen.Designer.vb">
+      <DependentUpon>frmSplashScreen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSplashScreen.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Operations\ExpenseTransaction\frmTransaction.Designer.vb">
+      <DependentUpon>frmTransaction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Operations\ExpenseTransaction\frmTransaction.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTransactionDescription.Designer.vb">
+      <DependentUpon>frmTransactionDescription.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmTransactionDescription.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUserProfile.Designer.vb">
+      <DependentUpon>frmUserProfile.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmUserProfile.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmViewAccountDetails.Designer.vb">
+      <DependentUpon>frmViewAccountDetails.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmViewAccountDetails.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmViewBankReconcilation.Designer.vb">
+      <DependentUpon>frmViewBankReconcilation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmViewBankReconcilation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmViewBankReconcilationDetails.Designer.vb">
+      <DependentUpon>frmViewBankReconcilationDetails.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmViewBankReconcilationDetails.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Operations\RevenueRegister\frmViewRevenueRegister.Designer.vb">
+      <DependentUpon>frmViewRevenueRegister.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Operations\RevenueRegister\frmViewRevenueRegister.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Operations\ExpenseTransaction\frmViewTransaction.Designer.vb">
+      <DependentUpon>frmViewTransaction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Operations\ExpenseTransaction\frmViewTransaction.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmViewTransactionDescriptionDetails.Designer.vb">
+      <DependentUpon>frmViewTransactionDescriptionDetails.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmViewTransactionDescriptionDetails.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmViewTransactionDetails.Designer.vb">
+      <DependentUpon>frmViewTransactionDetails.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmViewTransactionDetails.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmViewTransactionReport.Designer.vb">
+      <DependentUpon>frmViewTransactionReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmViewTransactionReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="logger.vb" />
+    <Compile Include="main.vb" />
+    <Compile Include="maintainBalanceReporter.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="TransactionDescriptionReporter.vb" />
+    <Compile Include="TransactionReporter.vb" />
+    <Compile Include="util.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\Operations\Accounts\frmRDLViewPrintAccount.resx">
+      <DependentUpon>frmRDLViewPrintAccount.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Operations\Accounts\frmSearchForAccount.resx">
+      <DependentUpon>frmSearchForAccount.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAboutBox.resx">
+      <DependentUpon>frmAboutBox.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBackUp.resx">
+      <DependentUpon>frmBackUp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBankReconcilation.resx">
+      <DependentUpon>frmBankReconcilation.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Operations\Accounts\frmAccount.resx">
+      <DependentUpon>frmAccount.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAcquire.resx">
+      <DependentUpon>frmAcquire.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddSupportingDocument.resx">
+      <DependentUpon>frmAddSupportingDocument.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCloseFinancialMonth.resx">
+      <DependentUpon>frmCloseFinancialMonth.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmForgotPassword.resx">
+      <DependentUpon>frmForgotPassword.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGenerateColumns.resx">
+      <DependentUpon>frmGenerateColumns.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGenerateReportTransaction.resx">
+      <DependentUpon>frmGenerateReportTransaction.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMainMenu.resx">
+      <DependentUpon>frmMainMenu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMaintainBalanceReport.resx">
+      <DependentUpon>frmMaintainBalanceReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOrganization.resx">
+      <DependentUpon>frmOrganization.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegisterOrganization.resx">
+      <DependentUpon>frmRegisterOrganization.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegisterUser.resx">
+      <DependentUpon>frmRegisterUser.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRestore.resx">
+      <DependentUpon>frmRestore.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Operations\RevenueRegister\frmRevenueRegister.resx">
+      <DependentUpon>frmRevenueRegister.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSearchAccount.resx">
+      <DependentUpon>frmSearchAccount.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSplashScreen.resx">
+      <DependentUpon>frmSplashScreen.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Operations\ExpenseTransaction\frmTransaction.resx">
+      <DependentUpon>frmTransaction.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTransactionDescription.resx">
+      <DependentUpon>frmTransactionDescription.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUserProfile.resx">
+      <DependentUpon>frmUserProfile.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmViewAccountDetails.resx">
+      <DependentUpon>frmViewAccountDetails.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmViewBankReconcilation.resx">
+      <DependentUpon>frmViewBankReconcilation.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmViewBankReconcilationDetails.resx">
+      <DependentUpon>frmViewBankReconcilationDetails.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Operations\RevenueRegister\frmViewRevenueRegister.resx">
+      <DependentUpon>frmViewRevenueRegister.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Operations\ExpenseTransaction\frmViewTransaction.resx">
+      <DependentUpon>frmViewTransaction.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmViewTransactionDescriptionDetails.resx">
+      <DependentUpon>frmViewTransactionDescriptionDetails.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmViewTransactionDetails.resx">
+      <DependentUpon>frmViewTransactionDetails.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmViewTransactionReport.resx">
+      <DependentUpon>frmViewTransactionReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\app.manifest" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
