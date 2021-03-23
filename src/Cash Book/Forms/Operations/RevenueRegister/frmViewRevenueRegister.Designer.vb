@@ -93,6 +93,7 @@ Partial Class frmViewRevenueRegister
         '
         'cboYears
         '
+        Me.cboYears.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboYears.FormattingEnabled = True
         Me.cboYears.Location = New System.Drawing.Point(418, 20)
         Me.cboYears.Margin = New System.Windows.Forms.Padding(2)
@@ -102,6 +103,7 @@ Partial Class frmViewRevenueRegister
         '
         'cboMonths
         '
+        Me.cboMonths.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboMonths.FormattingEnabled = True
         Me.cboMonths.Location = New System.Drawing.Point(214, 20)
         Me.cboMonths.Margin = New System.Windows.Forms.Padding(2)
@@ -111,6 +113,7 @@ Partial Class frmViewRevenueRegister
         '
         'cboAccounts
         '
+        Me.cboAccounts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboAccounts.FormattingEnabled = True
         Me.cboAccounts.Location = New System.Drawing.Point(10, 20)
         Me.cboAccounts.Margin = New System.Windows.Forms.Padding(2)

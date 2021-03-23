@@ -11,7 +11,7 @@
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs)
-        frmSearchAccount.ShowDialog()
+        frmSearchForAccount.ShowDialog()
     End Sub
     Private Sub initMaintainBalance()
         Dim sqlQuery As String
@@ -29,7 +29,6 @@
         btnNew.Enabled = False
         btnEdit.Enabled = False
         btnFind.Enabled = False
-        btnPrint.Enabled = False
         btnSave.Enabled = True
         btnUndo.Enabled = True
         btnDelete.Enabled = False
@@ -44,7 +43,6 @@
         dtpOpeningDate.Enabled = False
         btnNew.Enabled = False
         btnEdit.Enabled = False
-        btnPrint.Enabled = False
         btnFind.Enabled = False
         btnSave.Enabled = True
         btnUndo.Enabled = True
@@ -60,7 +58,6 @@
         btnNew.Enabled = True
         btnEdit.Enabled = True
         btnFind.Enabled = True
-        btnPrint.Enabled = True
         btnSave.Enabled = False
         btnUndo.Enabled = False
         btnDelete.Enabled = True
@@ -202,6 +199,7 @@
                         initData()
                     Catch ex As Exception
                         MessageBox.Show("Please Restart the Program again", Application.ProductName)
+                        Throw ex
                     End Try
                 Case dialog.No
                     reset()
@@ -242,8 +240,8 @@
         txtAccountNumber.Text = tblAccountList.Rows(i).Item("number")
         txtBankName.Text = tblAccountList.Rows(i).Item("bank_name")
         txtDescription.Text = tblAccountList.Rows(i).Item("description")
-        txtOpeningBalance.Text = FormatNumber(tblAccountList.Rows(i).Item("opening_balance"))
-        lblCurrentBalance.Text = FormatNumber(tblAccountList.Rows(i).Item("current_balance"))
+        txtOpeningBalance.Text = $"N{FormatNumber(tblAccountList.Rows(i).Item("opening_balance"))}"
+        lblCurrentBalance.Text = $"N{FormatNumber(tblAccountList.Rows(i).Item("current_balance"))}"
         dtpOpeningDate.Value = Convert.ToDateTime(tblAccountList.Rows(i).Item("opening_date"))
     End Sub
 
@@ -326,7 +324,7 @@
         toForm(PubAccountRowIndex)
     End Sub
 
-    Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
+    Private Sub btnPrint_Click(sender As Object, e As EventArgs)
         frmRDLViewPrintAccount.ShowDialog()
     End Sub
 End Class

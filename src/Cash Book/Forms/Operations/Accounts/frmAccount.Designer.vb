@@ -42,7 +42,6 @@ Partial Class frmAccount
         Me.btnUndo = New crsButton.cButton()
         Me.btnDelete = New crsButton.cButton()
         Me.btnSave = New crsButton.cButton()
-        Me.btnPrint = New crsButton.cButton()
         Me.btnFind = New crsButton.cButton()
         Me.SuspendLayout()
         '
@@ -157,7 +156,6 @@ Partial Class frmAccount
         Me.lblCurrentBalance.Name = "lblCurrentBalance"
         Me.lblCurrentBalance.Size = New System.Drawing.Size(522, 32)
         Me.lblCurrentBalance.TabIndex = 0
-        Me.lblCurrentBalance.Text = "Current Balance"
         Me.lblCurrentBalance.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'txtDescription
@@ -188,7 +186,7 @@ Partial Class frmAccount
         Me.btnNew.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNew.Image = CType(resources.GetObject("btnNew.Image"), System.Drawing.Image)
-        Me.btnNew.Location = New System.Drawing.Point(18, 278)
+        Me.btnNew.Location = New System.Drawing.Point(109, 283)
         Me.btnNew.Name = "btnNew"
         Me.btnNew.Size = New System.Drawing.Size(85, 45)
         Me.btnNew.TabIndex = 13
@@ -203,7 +201,7 @@ Partial Class frmAccount
         Me.btnEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEdit.Image = CType(resources.GetObject("btnEdit.Image"), System.Drawing.Image)
-        Me.btnEdit.Location = New System.Drawing.Point(109, 278)
+        Me.btnEdit.Location = New System.Drawing.Point(200, 283)
         Me.btnEdit.Name = "btnEdit"
         Me.btnEdit.Size = New System.Drawing.Size(85, 45)
         Me.btnEdit.TabIndex = 13
@@ -218,7 +216,7 @@ Partial Class frmAccount
         Me.btnUndo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.btnUndo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnUndo.Image = CType(resources.GetObject("btnUndo.Image"), System.Drawing.Image)
-        Me.btnUndo.Location = New System.Drawing.Point(200, 278)
+        Me.btnUndo.Location = New System.Drawing.Point(291, 283)
         Me.btnUndo.Name = "btnUndo"
         Me.btnUndo.Size = New System.Drawing.Size(85, 45)
         Me.btnUndo.TabIndex = 13
@@ -233,7 +231,7 @@ Partial Class frmAccount
         Me.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnDelete.Image = CType(resources.GetObject("btnDelete.Image"), System.Drawing.Image)
-        Me.btnDelete.Location = New System.Drawing.Point(564, 278)
+        Me.btnDelete.Location = New System.Drawing.Point(564, 283)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(85, 45)
         Me.btnDelete.TabIndex = 13
@@ -248,26 +246,11 @@ Partial Class frmAccount
         Me.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSave.Image = CType(resources.GetObject("btnSave.Image"), System.Drawing.Image)
-        Me.btnSave.Location = New System.Drawing.Point(473, 278)
+        Me.btnSave.Location = New System.Drawing.Point(473, 283)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(85, 45)
         Me.btnSave.TabIndex = 13
         Me.btnSave.UseVisualStyleBackColor = False
-        '
-        'btnPrint
-        '
-        Me.btnPrint.BackColor = System.Drawing.Color.Transparent
-        Me.btnPrint.ButtonType = crsButton.cButton.btnType.print
-        Me.btnPrint.FlatAppearance.BorderSize = 0
-        Me.btnPrint.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.btnPrint.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
-        Me.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnPrint.Image = CType(resources.GetObject("btnPrint.Image"), System.Drawing.Image)
-        Me.btnPrint.Location = New System.Drawing.Point(382, 278)
-        Me.btnPrint.Name = "btnPrint"
-        Me.btnPrint.Size = New System.Drawing.Size(85, 45)
-        Me.btnPrint.TabIndex = 13
-        Me.btnPrint.UseVisualStyleBackColor = False
         '
         'btnFind
         '
@@ -278,7 +261,7 @@ Partial Class frmAccount
         Me.btnFind.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.btnFind.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnFind.Image = CType(resources.GetObject("btnFind.Image"), System.Drawing.Image)
-        Me.btnFind.Location = New System.Drawing.Point(291, 278)
+        Me.btnFind.Location = New System.Drawing.Point(382, 283)
         Me.btnFind.Name = "btnFind"
         Me.btnFind.Size = New System.Drawing.Size(85, 45)
         Me.btnFind.TabIndex = 13
@@ -290,7 +273,6 @@ Partial Class frmAccount
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(663, 340)
         Me.Controls.Add(Me.btnFind)
-        Me.Controls.Add(Me.btnPrint)
         Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.btnDelete)
         Me.Controls.Add(Me.btnUndo)
@@ -344,6 +326,5 @@ Partial Class frmAccount
     Friend WithEvents btnUndo As crsButton.cButton
     Friend WithEvents btnDelete As crsButton.cButton
     Friend WithEvents btnSave As crsButton.cButton
-    Friend WithEvents btnPrint As crsButton.cButton
     Friend WithEvents btnFind As crsButton.cButton
 End Class

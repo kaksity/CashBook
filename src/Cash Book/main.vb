@@ -19,10 +19,10 @@ Module main
 
         'Try to Establish a database connection
 
-        Try
+        'Try
 
-            connection.ConnectionString = "server=localhost;user=SYSDBA;password=masterkey;database=cashbook" ' + CStr(Application.StartupPath) + "/CASH BOOK.FDB"
-            connection.Open()
+        connection.ConnectionString = "server=localhost;user=SYSDBA;password=masterkey;database=" + CStr(Application.StartupPath) + "/CASH BOOK.FDB"
+        connection.Open()
 
 
             'Parameters
@@ -30,9 +30,9 @@ Module main
             Application.EnableVisualStyles()
 
             Application.Run(startForm)
-        Catch ex As Exception
-            'MessageBox.Show("Please Contact your Database administrator", Application.ProductName)
-            'MessageBox.Show(ex.InnerException.Message)
-        End Try
+            'Catch ex As Exception
+            '   Throw ex
+            MessageBox.Show("Please Contact your Database administrator", Application.ProductName)
+        'End Try
     End Sub
 End Module

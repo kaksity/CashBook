@@ -36,7 +36,7 @@
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
-    <OutputPath>..\..\bin-release\</OutputPath>
+    <OutputPath>..\..\release\</OutputPath>
     <DocumentationFile>Cash Book.xml</DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
     <Prefer32Bit>false</Prefer32Bit>
@@ -47,7 +47,7 @@
     <DefineDebug>false</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\bin-release\</OutputPath>
+    <OutputPath>..\..\release\</OutputPath>
     <DocumentationFile>Cash Book.xml</DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
     <Prefer32Bit>true</Prefer32Bit>
@@ -78,8 +78,28 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\dll\dbO.dll</HintPath>
     </Reference>
+    <Reference Include="ExcelApi, Version=1.8.0.0, Culture=neutral, PublicKeyToken=9084b9221296229e, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetOfficeFw.Excel.1.8.0\lib\net40\ExcelApi.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
     <Reference Include="FirebirdSql.Data.FirebirdClient">
       <HintPath>..\..\dll\FirebirdSql.Data.FirebirdClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="NetOffice, Version=1.8.0.0, Culture=neutral, PublicKeyToken=297f57b43ae7c1de, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetOfficeFw.Core.1.8.0\lib\net40\NetOffice.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Office, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\MicrosoftOfficeCore.15.0.0\lib\net35\Office.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="OfficeApi, Version=1.8.0.0, Culture=neutral, PublicKeyToken=a39beb0835c43c8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetOfficeFw.Core.1.8.0\lib\net40\OfficeApi.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="RdlEngine">
       <HintPath>..\..\dll\RdlEngine.DLL</HintPath>
@@ -97,6 +117,10 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="VBIDEApi, Version=1.8.0.0, Culture=neutral, PublicKeyToken=931cec8882205047, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetOfficeFw.Core.1.8.0\lib\net40\VBIDEApi.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -112,7 +136,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountReporter.vb" />
+    <Compile Include="Classes\AccountReporter.vb" />
     <Compile Include="BankReconcilationReporter.vb" />
     <Compile Include="Forms\Operations\Accounts\frmRDLViewPrintAccount.Designer.vb">
       <DependentUpon>frmRDLViewPrintAccount.vb</DependentUpon>
@@ -126,108 +150,108 @@
     <Compile Include="Forms\Operations\Accounts\frmSearchForAccount.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAboutBox.Designer.vb">
+    <Compile Include="Forms\General\frmAboutBox.Designer.vb">
       <DependentUpon>frmAboutBox.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmAboutBox.vb">
+    <Compile Include="Forms\General\frmAboutBox.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmBackUp.Designer.vb">
+    <Compile Include="Forms\DataRecovery\frmBackUp.Designer.vb">
       <DependentUpon>frmBackUp.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmBackUp.vb">
+    <Compile Include="Forms\DataRecovery\frmBackUp.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmBankReconcilation.Designer.vb">
+    <Compile Include="Forms\Operations\BankReconcilation\frmBankReconcilation.Designer.vb">
       <DependentUpon>frmBankReconcilation.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmBankReconcilation.vb">
+    <Compile Include="Forms\Operations\BankReconcilation\frmBankReconcilation.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EZTWAIN.VB" />
+    <Compile Include="Classes\EZTWAIN.VB" />
     <Compile Include="Forms\Operations\Accounts\frmAccount.Designer.vb">
       <DependentUpon>frmAccount.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\Operations\Accounts\frmAccount.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAcquire.Designer.vb">
+    <Compile Include="Forms\General\frmAcquire.Designer.vb">
       <DependentUpon>frmAcquire.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmAcquire.vb">
+    <Compile Include="Forms\General\frmAcquire.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAddSupportingDocument.Designer.vb">
+    <Compile Include="Forms\General\frmAddSupportingDocument.Designer.vb">
       <DependentUpon>frmAddSupportingDocument.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmAddSupportingDocument.vb">
+    <Compile Include="Forms\General\frmAddSupportingDocument.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCloseFinancialMonth.Designer.vb">
+    <Compile Include="Forms\Operations\CloseFinancialMonth\frmCloseFinancialMonth.Designer.vb">
       <DependentUpon>frmCloseFinancialMonth.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmCloseFinancialMonth.vb">
+    <Compile Include="Forms\Operations\CloseFinancialMonth\frmCloseFinancialMonth.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmForgotPassword.Designer.vb">
+    <Compile Include="Forms\Authentication\frmForgotPassword.Designer.vb">
       <DependentUpon>frmForgotPassword.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmForgotPassword.vb">
+    <Compile Include="Forms\Authentication\frmForgotPassword.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmGenerateColumns.Designer.vb">
+    <Compile Include="Forms\Reports\frmGenerateColumns.Designer.vb">
       <DependentUpon>frmGenerateColumns.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmGenerateColumns.vb">
+    <Compile Include="Forms\Reports\frmGenerateColumns.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmGenerateReportTransaction.Designer.vb">
+    <Compile Include="Forms\Reports\Transaction\frmGenerateReportTransaction.Designer.vb">
       <DependentUpon>frmGenerateReportTransaction.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmGenerateReportTransaction.vb">
+    <Compile Include="Forms\Reports\Transaction\frmGenerateReportTransaction.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLogin.vb">
+    <Compile Include="Forms\Authentication\frmLogin.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLogin.Designer.vb">
+    <Compile Include="Forms\Authentication\frmLogin.Designer.vb">
       <DependentUpon>frmLogin.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMainMenu.Designer.vb">
+    <Compile Include="Forms\frmMainMenu.Designer.vb">
       <DependentUpon>frmMainMenu.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmMainMenu.vb">
+    <Compile Include="Forms\frmMainMenu.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMaintainBalanceReport.Designer.vb">
+    <Compile Include="Forms\Reports\frmMaintainBalanceReport.Designer.vb">
       <DependentUpon>frmMaintainBalanceReport.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmMaintainBalanceReport.vb">
+    <Compile Include="Forms\Reports\frmMaintainBalanceReport.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmOrganization.Designer.vb">
+    <Compile Include="Forms\Organization\frmOrganization.Designer.vb">
       <DependentUpon>frmOrganization.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmOrganization.vb">
+    <Compile Include="Forms\Organization\frmOrganization.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRegisterOrganization.Designer.vb">
+    <Compile Include="Forms\Organization\frmRegisterOrganization.Designer.vb">
       <DependentUpon>frmRegisterOrganization.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmRegisterOrganization.vb">
+    <Compile Include="Forms\Organization\frmRegisterOrganization.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRegisterUser.Designer.vb">
+    <Compile Include="Forms\Authentication\frmRegisterUser.Designer.vb">
       <DependentUpon>frmRegisterUser.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmRegisterUser.vb">
+    <Compile Include="Forms\Authentication\frmRegisterUser.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRestore.Designer.vb">
+    <Compile Include="Forms\DataRecovery\frmRestore.Designer.vb">
       <DependentUpon>frmRestore.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmRestore.vb">
+    <Compile Include="Forms\DataRecovery\frmRestore.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Operations\RevenueRegister\frmRevenueRegister.Designer.vb">
@@ -236,16 +260,10 @@
     <Compile Include="Forms\Operations\RevenueRegister\frmRevenueRegister.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSearchAccount.Designer.vb">
-      <DependentUpon>frmSearchAccount.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmSearchAccount.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmSplashScreen.Designer.vb">
+    <Compile Include="Forms\General\frmSplashScreen.Designer.vb">
       <DependentUpon>frmSplashScreen.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmSplashScreen.vb">
+    <Compile Include="Forms\General\frmSplashScreen.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Operations\ExpenseTransaction\frmTransaction.Designer.vb">
@@ -254,16 +272,16 @@
     <Compile Include="Forms\Operations\ExpenseTransaction\frmTransaction.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmTransactionDescription.Designer.vb">
+    <Compile Include="Forms\Operations\TransactionDescription\frmTransactionDescription.Designer.vb">
       <DependentUpon>frmTransactionDescription.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmTransactionDescription.vb">
+    <Compile Include="Forms\Operations\TransactionDescription\frmTransactionDescription.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmUserProfile.Designer.vb">
+    <Compile Include="Forms\User\frmUserProfile.Designer.vb">
       <DependentUpon>frmUserProfile.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmUserProfile.vb">
+    <Compile Include="Forms\User\frmUserProfile.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmViewAccountDetails.Designer.vb">
@@ -272,16 +290,16 @@
     <Compile Include="frmViewAccountDetails.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmViewBankReconcilation.Designer.vb">
+    <Compile Include="Forms\Operations\BankReconcilation\frmViewBankReconcilation.Designer.vb">
       <DependentUpon>frmViewBankReconcilation.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmViewBankReconcilation.vb">
+    <Compile Include="Forms\Operations\BankReconcilation\frmViewBankReconcilation.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmViewBankReconcilationDetails.Designer.vb">
+    <Compile Include="Forms\Operations\BankReconcilation\frmViewBankReconcilationDetails.Designer.vb">
       <DependentUpon>frmViewBankReconcilationDetails.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmViewBankReconcilationDetails.vb">
+    <Compile Include="Forms\Operations\BankReconcilation\frmViewBankReconcilationDetails.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Operations\RevenueRegister\frmViewRevenueRegister.Designer.vb">
@@ -296,10 +314,10 @@
     <Compile Include="Forms\Operations\ExpenseTransaction\frmViewTransaction.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmViewTransactionDescriptionDetails.Designer.vb">
+    <Compile Include="Forms\Operations\TransactionDescription\frmViewTransactionDescriptionDetails.Designer.vb">
       <DependentUpon>frmViewTransactionDescriptionDetails.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmViewTransactionDescriptionDetails.vb">
+    <Compile Include="Forms\Operations\TransactionDescription\frmViewTransactionDescriptionDetails.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmViewTransactionDetails.Designer.vb">
@@ -308,15 +326,15 @@
     <Compile Include="frmViewTransactionDetails.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmViewTransactionReport.Designer.vb">
+    <Compile Include="Forms\Reports\Transaction\frmViewTransactionReport.Designer.vb">
       <DependentUpon>frmViewTransactionReport.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmViewTransactionReport.vb">
+    <Compile Include="Forms\Reports\Transaction\frmViewTransactionReport.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="logger.vb" />
+    <Compile Include="Classes\logger.vb" />
     <Compile Include="main.vb" />
-    <Compile Include="maintainBalanceReporter.vb" />
+    <Compile Include="Classes\maintainBalanceReporter.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -332,9 +350,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="TransactionDescriptionReporter.vb" />
-    <Compile Include="TransactionReporter.vb" />
-    <Compile Include="util.vb" />
+    <Compile Include="Classes\TransactionDescriptionReporter.vb" />
+    <Compile Include="Classes\TransactionReporter.vb" />
+    <Compile Include="Classes\util.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Forms\Operations\Accounts\frmRDLViewPrintAccount.resx">
@@ -343,82 +361,79 @@
     <EmbeddedResource Include="Forms\Operations\Accounts\frmSearchForAccount.resx">
       <DependentUpon>frmSearchForAccount.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAboutBox.resx">
+    <EmbeddedResource Include="Forms\General\frmAboutBox.resx">
       <DependentUpon>frmAboutBox.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmBackUp.resx">
+    <EmbeddedResource Include="Forms\DataRecovery\frmBackUp.resx">
       <DependentUpon>frmBackUp.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmBankReconcilation.resx">
+    <EmbeddedResource Include="Forms\Operations\BankReconcilation\frmBankReconcilation.resx">
       <DependentUpon>frmBankReconcilation.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Operations\Accounts\frmAccount.resx">
       <DependentUpon>frmAccount.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAcquire.resx">
+    <EmbeddedResource Include="Forms\General\frmAcquire.resx">
       <DependentUpon>frmAcquire.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAddSupportingDocument.resx">
+    <EmbeddedResource Include="Forms\General\frmAddSupportingDocument.resx">
       <DependentUpon>frmAddSupportingDocument.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCloseFinancialMonth.resx">
+    <EmbeddedResource Include="Forms\Operations\CloseFinancialMonth\frmCloseFinancialMonth.resx">
       <DependentUpon>frmCloseFinancialMonth.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmForgotPassword.resx">
+    <EmbeddedResource Include="Forms\Authentication\frmForgotPassword.resx">
       <DependentUpon>frmForgotPassword.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmGenerateColumns.resx">
+    <EmbeddedResource Include="Forms\Reports\frmGenerateColumns.resx">
       <DependentUpon>frmGenerateColumns.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmGenerateReportTransaction.resx">
+    <EmbeddedResource Include="Forms\Reports\Transaction\frmGenerateReportTransaction.resx">
       <DependentUpon>frmGenerateReportTransaction.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLogin.resx">
+    <EmbeddedResource Include="Forms\Authentication\frmLogin.resx">
       <DependentUpon>frmLogin.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMainMenu.resx">
+    <EmbeddedResource Include="Forms\frmMainMenu.resx">
       <DependentUpon>frmMainMenu.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMaintainBalanceReport.resx">
+    <EmbeddedResource Include="Forms\Reports\frmMaintainBalanceReport.resx">
       <DependentUpon>frmMaintainBalanceReport.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmOrganization.resx">
+    <EmbeddedResource Include="Forms\Organization\frmOrganization.resx">
       <DependentUpon>frmOrganization.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRegisterOrganization.resx">
+    <EmbeddedResource Include="Forms\Organization\frmRegisterOrganization.resx">
       <DependentUpon>frmRegisterOrganization.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRegisterUser.resx">
+    <EmbeddedResource Include="Forms\Authentication\frmRegisterUser.resx">
       <DependentUpon>frmRegisterUser.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRestore.resx">
+    <EmbeddedResource Include="Forms\DataRecovery\frmRestore.resx">
       <DependentUpon>frmRestore.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Operations\RevenueRegister\frmRevenueRegister.resx">
       <DependentUpon>frmRevenueRegister.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSearchAccount.resx">
-      <DependentUpon>frmSearchAccount.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmSplashScreen.resx">
+    <EmbeddedResource Include="Forms\General\frmSplashScreen.resx">
       <DependentUpon>frmSplashScreen.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Operations\ExpenseTransaction\frmTransaction.resx">
       <DependentUpon>frmTransaction.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmTransactionDescription.resx">
+    <EmbeddedResource Include="Forms\Operations\TransactionDescription\frmTransactionDescription.resx">
       <DependentUpon>frmTransactionDescription.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmUserProfile.resx">
+    <EmbeddedResource Include="Forms\User\frmUserProfile.resx">
       <DependentUpon>frmUserProfile.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmViewAccountDetails.resx">
       <DependentUpon>frmViewAccountDetails.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmViewBankReconcilation.resx">
+    <EmbeddedResource Include="Forms\Operations\BankReconcilation\frmViewBankReconcilation.resx">
       <DependentUpon>frmViewBankReconcilation.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmViewBankReconcilationDetails.resx">
+    <EmbeddedResource Include="Forms\Operations\BankReconcilation\frmViewBankReconcilationDetails.resx">
       <DependentUpon>frmViewBankReconcilationDetails.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Operations\RevenueRegister\frmViewRevenueRegister.resx">
@@ -427,13 +442,13 @@
     <EmbeddedResource Include="Forms\Operations\ExpenseTransaction\frmViewTransaction.resx">
       <DependentUpon>frmViewTransaction.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmViewTransactionDescriptionDetails.resx">
+    <EmbeddedResource Include="Forms\Operations\TransactionDescription\frmViewTransactionDescriptionDetails.resx">
       <DependentUpon>frmViewTransactionDescriptionDetails.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmViewTransactionDetails.resx">
       <DependentUpon>frmViewTransactionDetails.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmViewTransactionReport.resx">
+    <EmbeddedResource Include="Forms\Reports\Transaction\frmViewTransactionReport.resx">
       <DependentUpon>frmViewTransactionReport.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -455,6 +470,7 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />

@@ -60,6 +60,7 @@ Partial Class frmRevenueRegister
         '
         'cboAccount
         '
+        Me.cboAccount.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboAccount.FormattingEnabled = True
         Me.cboAccount.Location = New System.Drawing.Point(133, 16)
         Me.cboAccount.Margin = New System.Windows.Forms.Padding(2)
@@ -210,6 +211,7 @@ Partial Class frmRevenueRegister
         '
         'cboDescription
         '
+        Me.cboDescription.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboDescription.FormattingEnabled = True
         Me.cboDescription.Location = New System.Drawing.Point(133, 147)
         Me.cboDescription.Margin = New System.Windows.Forms.Padding(2)

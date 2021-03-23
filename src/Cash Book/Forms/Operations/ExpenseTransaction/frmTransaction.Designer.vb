@@ -78,6 +78,7 @@ Partial Class frmTransaction
         '
         'cboDescription
         '
+        Me.cboDescription.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboDescription.FormattingEnabled = True
         Me.cboDescription.Location = New System.Drawing.Point(144, 82)
         Me.cboDescription.Margin = New System.Windows.Forms.Padding(2)
@@ -87,6 +88,7 @@ Partial Class frmTransaction
         '
         'cboAccounts
         '
+        Me.cboAccounts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboAccounts.FormattingEnabled = True
         Me.cboAccounts.Location = New System.Drawing.Point(144, 30)
         Me.cboAccounts.Margin = New System.Windows.Forms.Padding(2)

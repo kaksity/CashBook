@@ -25,14 +25,15 @@ Partial Class frmViewAccountDetails
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmViewAccountDetails))
         Me.btnGeneratePDF = New System.Windows.Forms.Button()
         Me.RdlViewer1 = New fyiReporting.RdlViewer.RdlViewer()
-        Me.documentToBePrinted = New System.Drawing.Printing.PrintDocument()
         Me.SuspendLayout()
         '
         'btnGeneratePDF
         '
-        Me.btnGeneratePDF.Location = New System.Drawing.Point(12, 12)
+        Me.btnGeneratePDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnGeneratePDF.Location = New System.Drawing.Point(21, 10)
+        Me.btnGeneratePDF.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btnGeneratePDF.Name = "btnGeneratePDF"
-        Me.btnGeneratePDF.Size = New System.Drawing.Size(165, 51)
+        Me.btnGeneratePDF.Size = New System.Drawing.Size(128, 41)
         Me.btnGeneratePDF.TabIndex = 0
         Me.btnGeneratePDF.Text = "&Generate PDF"
         Me.btnGeneratePDF.UseVisualStyleBackColor = True
@@ -47,7 +48,8 @@ Partial Class frmViewAccountDetails
         Me.RdlViewer1.HighlightItemColor = System.Drawing.Color.Aqua
         Me.RdlViewer1.HighlightPageItem = Nothing
         Me.RdlViewer1.HighlightText = Nothing
-        Me.RdlViewer1.Location = New System.Drawing.Point(12, 69)
+        Me.RdlViewer1.Location = New System.Drawing.Point(9, 55)
+        Me.RdlViewer1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.RdlViewer1.Name = "RdlViewer1"
         Me.RdlViewer1.PageCurrent = 1
         Me.RdlViewer1.Parameters = Nothing
@@ -55,26 +57,26 @@ Partial Class frmViewAccountDetails
         Me.RdlViewer1.ScrollMode = fyiReporting.RdlViewer.ScrollModeEnum.Continuous
         Me.RdlViewer1.ShowFindPanel = False
         Me.RdlViewer1.ShowParameterPanel = False
-        Me.RdlViewer1.Size = New System.Drawing.Size(973, 462)
+        Me.RdlViewer1.Size = New System.Drawing.Size(757, 479)
         Me.RdlViewer1.SourceFile = Nothing
         Me.RdlViewer1.SourceRdl = Nothing
         Me.RdlViewer1.TabIndex = 1
         Me.RdlViewer1.Text = "RdlViewer1"
         Me.RdlViewer1.UseTrueMargins = True
-        Me.RdlViewer1.Zoom = 1.134628!
+        Me.RdlViewer1.Zoom = 0.8782684!
         Me.RdlViewer1.ZoomMode = fyiReporting.RdlViewer.ZoomEnum.FitWidth
         '
         'frmViewAccountDetails
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(997, 543)
+        Me.ClientSize = New System.Drawing.Size(775, 545)
         Me.Controls.Add(Me.RdlViewer1)
         Me.Controls.Add(Me.btnGeneratePDF)
-        Me.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "frmViewAccountDetails"
@@ -85,5 +87,4 @@ Partial Class frmViewAccountDetails
     End Sub
     Friend WithEvents btnGeneratePDF As Button
     Friend WithEvents RdlViewer1 As fyiReporting.RdlViewer.RdlViewer
-    Friend WithEvents documentToBePrinted As Printing.PrintDocument
 End Class
