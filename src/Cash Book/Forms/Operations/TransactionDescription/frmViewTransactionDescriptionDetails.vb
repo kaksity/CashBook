@@ -9,4 +9,8 @@
             MessageBox.Show("PDF report was generated successfully", Application.ProductName)
         End If
     End Sub
+
+    Private Sub frmViewTransactionDescriptionDetails_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

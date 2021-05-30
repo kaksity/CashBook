@@ -47,7 +47,7 @@
 
         tblFinancialMonth.Clear()
 
-        sqlQuery = "SELECT * FROM maintain_balance"
+        sqlQuery = "SELECT * FROM maintain_balance WHERE is_deleted=0"
         tblFinancialMonth = connection.Fetch(sqlQuery)
 
         grid.Rows.Clear()
@@ -88,7 +88,7 @@
         Dim sqlQuery As String
         tblAccounts.Clear()
 
-        sqlQuery = "SELECT * FROM ACCOUNTS WHERE NUMBER = '" + CStr(accountNumber) + "'"
+        sqlQuery = $"SELECT * FROM ACCOUNTS WHERE NUMBER = '{ CStr(accountNumber)}' AND is_deleted=0"
         tblAccounts = connection.Fetch(sqlQuery)
 
         If tblAccounts.Rows.Count = 0 Then Return ""
@@ -248,12 +248,12 @@
                     month = 1
                     year = year + 1
 
-                    sqlQuery = "INSERT INTO MAINTAIN_BALANCE_YEARLY (ACCOUNT_NUMBER, OPENING_BALANCE, CLOSING_BALANCE, YEARS, UKEY) VALUES ('" + account + "','" + openingBalance + "','0','" + CStr(year) + "',null)"
+                    sqlQuery = $"INSERT INTO MAINTAIN_BALANCE_YEARLY (ACCOUNT_NUMBER, OPENING_BALANCE, CLOSING_BALANCE, YEARS, UKEY,is_deleted) VALUES ('{ account }','{ openingBalance}','0','{ CStr(year)}',null,0)"
                     connection.Execute(sqlQuery)
 
                 End If
 
-                sqlQuery = "UPDATE accounts SET current_balance = '" + openingBalance + "' WHERE number = '" + CStr(account) + "'"
+                sqlQuery = $"UPDATE accounts SET current_balance = '{openingBalance }' WHERE number = '{ CStr(account) }' AND is_deleted=0"
                 connection.Execute(sqlQuery)
 
                 duration = CStr(month) + "." + CStr(year)

@@ -32,7 +32,7 @@ Partial Class frmViewTransactionDescriptionDetails
         '
         Me.btnGeneratePDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGeneratePDF.Location = New System.Drawing.Point(21, 11)
-        Me.btnGeneratePDF.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnGeneratePDF.Margin = New System.Windows.Forms.Padding(2)
         Me.btnGeneratePDF.Name = "btnGeneratePDF"
         Me.btnGeneratePDF.Size = New System.Drawing.Size(191, 36)
         Me.btnGeneratePDF.TabIndex = 0
@@ -53,7 +53,7 @@ Partial Class frmViewTransactionDescriptionDetails
         Me.RDLViewerDescription.HighlightPageItem = Nothing
         Me.RDLViewerDescription.HighlightText = Nothing
         Me.RDLViewerDescription.Location = New System.Drawing.Point(9, 50)
-        Me.RDLViewerDescription.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.RDLViewerDescription.Margin = New System.Windows.Forms.Padding(2)
         Me.RDLViewerDescription.Name = "RDLViewerDescription"
         Me.RDLViewerDescription.PageCurrent = 1
         Me.RDLViewerDescription.Parameters = Nothing

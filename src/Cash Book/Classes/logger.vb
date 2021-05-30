@@ -13,6 +13,7 @@
         tblLogs.Fields("user_code") = id
         tblLogs.Fields("date_of_activity") = DateAndTime.Now
         tblLogs.Fields("log_activity") = "Logged In"
+        tblLogs.Fields("is_deleted") = 0
         tblLogs.Update()
     End Sub
 
@@ -20,7 +21,8 @@
         tblLogs.Addnew()
         tblLogs.Fields("user_code") = id
         tblLogs.Fields("date_of_activity") = DateAndTime.Now
-        tblLogs.Fields("log_activity") = "Created Account " + CStr(account) + " with Opening Balance N" + CStr(balance)
+        tblLogs.Fields("log_activity") = $"Created Account {CStr(account) } with Opening Balance N{ CStr(balance)}"
+        tblLogs.Fields("is_deleted") = 0
         tblLogs.Update()
     End Sub
 
@@ -28,7 +30,8 @@
         tblLogs.Addnew()
         tblLogs.Fields("user_code") = id
         tblLogs.Fields("date_of_activity") = DateAndTime.Now
-        tblLogs.Fields("log_activity") = "Deleted Account " + CStr(account)
+        tblLogs.Fields("log_activity") = $"Deleted Account { CStr(account)}"
+        tblLogs.Fields("is_deleted") = 0
         tblLogs.Update()
     End Sub
 
@@ -37,10 +40,11 @@
         tblLogs.Fields("user_code") = id
         tblLogs.Fields("date_of_activity") = DateAndTime.Now
         If type = "INCOME" Then
-            tblLogs.Fields("log_activity") = "Account " + CStr(account) + " deposited N" + CStr(ammount) + " by " + person
+            tblLogs.Fields("log_activity") = $"Account {CStr(account) } deposited N{CStr(ammount) } by { person}"
         Else
-            tblLogs.Fields("log_activity") = "Account " + CStr(account) + " withdrew N" + CStr(ammount) + " to " + person
+            tblLogs.Fields("log_activity") = $"Account {CStr(account)} withdrew N{ CStr(ammount) } To { person}"
         End If
+        tblLogs.Fields("is_deleted") = 0
         tblLogs.Update()
     End Sub
 
@@ -49,10 +53,11 @@
         tblLogs.Fields("user_code") = id
         tblLogs.Fields("date_of_activity") = DateAndTime.Now
         If type = "INCOME" Then
-            tblLogs.Fields("log_activity") = "Account " + CStr(account) + " deleted a deposit transaction of  N" + CStr(ammount)
+            tblLogs.Fields("log_activity") = $"Account { CStr(account) } deleted a deposit transaction Of  N{ CStr(ammount)}"
         Else
-            tblLogs.Fields("log_activity") = "Account " + CStr(account) + " deleted a withdraw transction of N" + CStr(ammount)
+            tblLogs.Fields("log_activity") = $"Account { CStr(account) } deleted a withdraw transction Of N{ CStr(ammount)}"
         End If
+        tblLogs.Fields("is_deleted") = 0
         tblLogs.Update()
     End Sub
 
@@ -60,7 +65,8 @@
         tblLogs.Addnew()
         tblLogs.Fields("user_code") = id
         tblLogs.Fields("date_of_activity") = DateAndTime.Now
-        tblLogs.Fields("log_activity") = "Account " + CStr(account) + " Created Bank reconcilation for the month of " + CStr(duration)
+        tblLogs.Fields("log_activity") = $"Account {CStr(account)} Created Bank reconcilation For the month Of { CStr(duration)}"
+        tblLogs.Fields("is_deleted") = 0
         tblLogs.Update()
     End Sub
 
@@ -68,7 +74,8 @@
         tblLogs.Addnew()
         tblLogs.Fields("user_code") = id
         tblLogs.Fields("date_of_activity") = DateAndTime.Now
-        tblLogs.Fields("log_activity") = "Account " + CStr(account) + " Deleted Bank reconcilation for the month of " + CStr(duration)
+        tblLogs.Fields("log_activity") = $"Account {CStr(account) } Deleted Bank reconcilation For the month Of { CStr(duration)}"
+        tblLogs.Fields("is_deleted") = 0
         tblLogs.Update()
     End Sub
 
@@ -76,7 +83,8 @@
         tblLogs.Addnew()
         tblLogs.Fields("user_code") = id
         tblLogs.Fields("date_of_activity") = DateAndTime.Now
-        tblLogs.Fields("log_activity") = "Account " + CStr(account) + " closed for the month of " + CStr(duration)
+        tblLogs.Fields("log_activity") = $"Account {CStr(account)} closed For the month Of { CStr(duration)}"
+        tblLogs.Fields("is_deleted") = 0
         tblLogs.Update()
     End Sub
 End Class

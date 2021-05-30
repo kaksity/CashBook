@@ -24,10 +24,8 @@ Partial Class frmSearchForAccount
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSearchForAccount))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.rbAccountName = New System.Windows.Forms.RadioButton()
-        Me.rbAccountNumber = New System.Windows.Forms.RadioButton()
-        Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.lblSearchResult = New System.Windows.Forms.Label()
+        Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.grid = New System.Windows.Forms.DataGridView()
         Me.btnCancel = New crsButton.cButton()
         Me.btnOkay = New crsButton.cButton()
@@ -40,43 +38,12 @@ Partial Class frmSearchForAccount
         '
         Me.GroupBox1.Controls.Add(Me.lblSearchResult)
         Me.GroupBox1.Controls.Add(Me.txtSearch)
-        Me.GroupBox1.Controls.Add(Me.rbAccountNumber)
-        Me.GroupBox1.Controls.Add(Me.rbAccountName)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(409, 100)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Search"
-        '
-        'rbAccountName
-        '
-        Me.rbAccountName.AutoSize = True
-        Me.rbAccountName.Location = New System.Drawing.Point(6, 74)
-        Me.rbAccountName.Name = "rbAccountName"
-        Me.rbAccountName.Size = New System.Drawing.Size(60, 20)
-        Me.rbAccountName.TabIndex = 0
-        Me.rbAccountName.TabStop = True
-        Me.rbAccountName.Text = "Name"
-        Me.rbAccountName.UseVisualStyleBackColor = True
-        '
-        'rbAccountNumber
-        '
-        Me.rbAccountNumber.AutoSize = True
-        Me.rbAccountNumber.Location = New System.Drawing.Point(72, 74)
-        Me.rbAccountNumber.Name = "rbAccountNumber"
-        Me.rbAccountNumber.Size = New System.Drawing.Size(71, 20)
-        Me.rbAccountNumber.TabIndex = 1
-        Me.rbAccountNumber.TabStop = True
-        Me.rbAccountNumber.Text = "Number"
-        Me.rbAccountNumber.UseVisualStyleBackColor = True
-        '
-        'txtSearch
-        '
-        Me.txtSearch.Location = New System.Drawing.Point(149, 72)
-        Me.txtSearch.Name = "txtSearch"
-        Me.txtSearch.Size = New System.Drawing.Size(254, 22)
-        Me.txtSearch.TabIndex = 2
         '
         'lblSearchResult
         '
@@ -88,6 +55,13 @@ Partial Class frmSearchForAccount
         Me.lblSearchResult.Size = New System.Drawing.Size(397, 51)
         Me.lblSearchResult.TabIndex = 3
         Me.lblSearchResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'txtSearch
+        '
+        Me.txtSearch.Location = New System.Drawing.Point(6, 72)
+        Me.txtSearch.Name = "txtSearch"
+        Me.txtSearch.Size = New System.Drawing.Size(397, 22)
+        Me.txtSearch.TabIndex = 2
         '
         'grid
         '
@@ -167,8 +141,6 @@ Partial Class frmSearchForAccount
 
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents txtSearch As TextBox
-    Friend WithEvents rbAccountNumber As RadioButton
-    Friend WithEvents rbAccountName As RadioButton
     Friend WithEvents lblSearchResult As Label
     Friend WithEvents grid As DataGridView
     Friend WithEvents btnCancel As crsButton.cButton

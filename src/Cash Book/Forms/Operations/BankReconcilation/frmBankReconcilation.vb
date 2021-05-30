@@ -9,7 +9,7 @@
 
         tblBankReconcilation.Clear()
 
-        sqlQuery = "SELECT * FROM bank_reconcilation WHERE ukey = -1"
+        sqlQuery = "SELECT * FROM bank_reconcilation WHERE is_deleted=0 AND ukey = -1"
         tblBankReconcilation = connection.Fetch(sqlQuery)
     End Sub
     Private Sub disable()
@@ -78,7 +78,7 @@
     Private Sub loadAccounts()
         Dim sqlQuery As String
 
-        sqlQuery = "SELECT * FROM ACCOUNTS"
+        sqlQuery = "SELECT * FROM ACCOUNTS WHERE is_deleted=0"
         tblAccounts.Rows.Clear()
 
         tblAccounts = connection.Fetch(sqlQuery)
@@ -324,7 +324,7 @@
                     Dim tblCheckMaintainBalance As New dbO.Table
 
                     duration = CStr(cboMonths.SelectedValue) + "." + CStr(cboYears.SelectedValue)
-                    sqlStrQuery = "SELECT * FROM MAINTAIN_BALANCE WHERE account_number='" + CStr(cboAccount.SelectedValue) + "' AND duration='" + duration + "'"
+                    sqlStrQuery = $"SELECT * FROM MAINTAIN_BALANCE WHERE account_number='{ CStr(cboAccount.SelectedValue) }' AND duration='{duration}' AND is_deleted=0"
 
                     tblCheckMaintainBalance.Clear()
 
@@ -357,7 +357,7 @@
                     tblBankReconcilation.Fields("uncredited_lodgements") = txtUncreditedLodgement.Text.Trim
                     tblBankReconcilation.Fields("cashbook_not_bank") = txtItemsInCashBookNotBank.Text.Trim
                     tblBankReconcilation.Fields("diff_btw_bank_and_cashbook") = "0"
-
+                    tblBankReconcilation.Fields("is_deleted") = 0
                     tblBankReconcilation.Update()
                     logger.createBankReconcilation(userID, cboAccount.SelectedValue, CStr(cboMonths.SelectedValue) + "/" + CStr(cboYears.SelectedValue))
                     MessageBox.Show("New Bank Reconcilation record was created successfully", Application.ProductName)
@@ -382,7 +382,7 @@
         duration = CStr(month) + "/" + CStr(year)
 
         tblCheckBankReconcilation.Clear()
-        sqlQuery = "SELECT * FROM bank_reconcilation WHERE account_number = '" + accountNumber + "' AND duration = '" + duration + "'"
+        sqlQuery = $"SELECT * FROM bank_reconcilation WHERE account_number = '{accountNumber}' AND duration = '{ duration }' AND is_deleted=0"
         tblCheckBankReconcilation = connection.Fetch(sqlQuery)
 
         If tblCheckBankReconcilation.Rows.Count = 0 Then

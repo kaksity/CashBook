@@ -11,7 +11,7 @@ Public Class TransactionDescriptionReporter
         Dim tblOrganization As New dbO.Table
 
         tblDescription.Clear()
-        sqlQuery = "SELECT * FROM TRANSACTION_DESCRIPTION"
+        sqlQuery = "SELECT * FROM TRANSACTION_DESCRIPTION WHERE is_deleted=0"
         tblDescription = connection.Fetch(sqlQuery)
 
         tblOrganization.Clear()

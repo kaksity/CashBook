@@ -50,7 +50,7 @@
         Dim tblAccounts As New dbO.Table
         Dim sqlQuery As String
 
-        sqlQuery = "SELECT * FROM ACCOUNTS"
+        sqlQuery = "SELECT * FROM ACCOUNTS WHERE is_deleted=0"
         tblAccounts.Rows.Clear()
 
         tblAccounts = connection.Fetch(sqlQuery)
@@ -109,7 +109,7 @@
         Dim sqlQuery As String
         tblAccounts.Clear()
 
-        sqlQuery = "SELECT * FROM ACCOUNTS WHERE NUMBER = '" + CStr(accountNumber) + "'"
+        sqlQuery = "SELECT * FROM ACCOUNTS WHERE is_deleted=0 AND NUMBER = '" + CStr(accountNumber) + "'"
         tblAccounts = connection.Fetch(sqlQuery)
 
         If tblAccounts.Rows.Count = 0 Then Return ""
@@ -123,7 +123,7 @@
 
         tblDescription.Clear()
 
-        sqlQuery = "SELECT * FROM TRANSACTION_DESCRIPTION WHERE UKEY = '" + CStr(id) + "'"
+        sqlQuery = "SELECT * FROM TRANSACTION_DESCRIPTION WHERE is_deleted=0 AND UKEY = '" + CStr(id) + "'"
         tblDescription = connection.Fetch(sqlQuery)
 
         If tblDescription.Rows.Count = 0 Then Return ""
@@ -133,7 +133,7 @@
 
     Private Sub loadTransaction()
         Dim sqlQuery As String
-        sqlQuery = "SELECT * FROM TRANSACTIONS WHERE AMMOUNT_DEPOSITED = 0"
+        sqlQuery = "SELECT * FROM TRANSACTIONS WHERE AMMOUNT_DEPOSITED = 0 AND is_deleted=0"
 
         tblTransactions.Clear()
         tblTransactions = connection.Fetch(sqlQuery)
@@ -166,7 +166,7 @@
 
         tblTransactions.Clear()
 
-        sqlQuery = "SELECT * FROM TRANSACTIONS WHERE AMMOUNT_DEPOSITED = 0 AND account_number = '" + accountNumber + "' AND extract(YEAR FROM date_of_transaction) = '" + CStr(year) + "' AND extract(month FROM date_of_transaction) = '" + CStr(month) + "'"
+        sqlQuery = "SELECT * FROM TRANSACTIONS WHERE AMMOUNT_DEPOSITED = 0 AND is_deleted =0 AND account_number = '" + accountNumber + "' AND extract(YEAR FROM date_of_transaction) = '" + CStr(year) + "' AND extract(month FROM date_of_transaction) = '" + CStr(month) + "'"
         tblTransactions = connection.Fetch(sqlQuery)
 
         grid.Rows.Clear()
@@ -214,8 +214,8 @@
 
     Private Sub grid_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles grid.CellClick
         If e.RowIndex < 0 Then Exit Sub
-        rowIndex = e.rowIndex
-        lblSelectedRecord.Text = "Selected " + getAccountName(tblTransactions.Rows(e.RowIndex).Item("account_number")) + " Account Number " + tblTransactions.Rows(e.RowIndex).Item("account_number") + " on " + tblTransactions.Rows(e.RowIndex).Item("date_of_transaction") + "Beneficiary " + tblTransactions.Rows(e.RowIndex).Item("name_of_beneficiary") + " Ammount " + tblTransactions.Rows(e.RowIndex).Item("ammount_withdrawn")
+        rowIndex = e.RowIndex
+        lblSelectedRecord.Text = $"Selected { getAccountName(tblTransactions.Rows(e.RowIndex).Item("account_number")) } Account Number { tblTransactions.Rows(e.RowIndex).Item("account_number") } on { tblTransactions.Rows(e.RowIndex).Item("date_of_transaction") } Beneficiary { tblTransactions.Rows(e.RowIndex).Item("name_of_beneficiary") } Ammount { tblTransactions.Rows(e.RowIndex).Item("ammount_withdrawn")}"
 
         selectedExpenseTransaction = CStr(tblTransactions.Rows(e.RowIndex).Item("ukey"))
     End Sub
@@ -260,7 +260,7 @@
 
         duration = CStr(month) + "." + CStr(year)
 
-        sqlQuery = "SELECT * FROM maintain_balance WHERE duration = '" + duration + "'"
+        sqlQuery = "SELECT * FROM maintain_balance WHERE duration = '" + duration + "' AND is_deleted=0"
         tblMaintainBalance.Clear()
         tblMaintainBalance = connection.Fetch(sqlQuery)
 
@@ -277,7 +277,7 @@
                 'Dim balance As Long
 
                 'Get the Ammount and update the account balance
-                sqlQuery = "SELECT * FROM ACCOUNTS WHERE NUMBER='" + tblTransactions.Fields("account_number") + "'"
+                sqlQuery = "SELECT * FROM ACCOUNTS WHERE NUMBER='" + tblTransactions.Fields("account_number") + "' AND is_deleted=0"
                 tblAccount.Clear()
                 tblAccount = connection.Fetch(sqlQuery)
 
@@ -287,11 +287,11 @@
                 tblAccount.Update()
 
                 'Delete all the supporting document 
-                sqlQuery = "DELETE FROM supporting_document WHERE transactions = " + CStr(tblTransactions.Fields("ukey"))
+                sqlQuery = $"UPDATE supporting_document SET is_deleted=1 WHERE is_deleted=0 AND transactions = {CStr(tblTransactions.Fields("ukey"))}"
                 connection.Execute(sqlQuery)
 
                 'Delete the transaction
-                sqlQuery = "DELETE FROM transactions WHERE ukey = " + CStr(tblTransactions.Fields("ukey"))
+                sqlQuery = $"UPDATE transactions SET is_deleted=1 WHERE is_deleted=0 AND ukey = " + CStr(tblTransactions.Fields("ukey"))
                 connection.Execute(sqlQuery)
 
                 logger.deleteTransaction(userID, tblTransactions.Fields("account_number"), tblTransactions.Fields("ammount_withdrawn"), "EXPENSE")

@@ -76,7 +76,7 @@
 
     Private Sub loadGrid()
         Dim sqlQuery As String
-        sqlQuery = "SELECT * FROM TRANSACTION_DESCRIPTION"
+        sqlQuery = "SELECT * FROM TRANSACTION_DESCRIPTION WHERE is_deleted=0"
         tblTransactionDescription.Clear()
         tblTransactionDescription = connection.Fetch(sqlQuery)
         grid.Rows.Clear()
@@ -157,6 +157,7 @@
                     tblTransactionDescription.Fields("description_name") = txtNameOfDescription.Text.Trim.ToUpper
                     tblTransactionDescription.Fields("type_of_transaction") = cboTypeOfTransaction.SelectedValue
                     tblTransactionDescription.Fields("description") = txtDescription.Text.ToUpper.Trim
+                    tblTransactionDescription.Fields("is_deleted") = 0
                     tblTransactionDescription.Update()
 
                     MessageBox.Show("Transction description record was added successfully", Application.ProductName)
@@ -210,7 +211,7 @@
                 'Check if the transaction description has been used
                 Try
                     tblTransactionDescription.Move(rowIndex)
-                    tblTransactionDescription.Delete()
+                    tblTransactionDescription.Fields("is_deleted") = 1
                     tblTransactionDescription.Update()
                     MessageBox.Show("Transaction Description was deleted successfully", Application.ProductName)
 

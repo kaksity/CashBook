@@ -7,7 +7,7 @@
 
     Private Sub initData()
         tblAccountList.Clear()
-        tblAccountList = connection.Fetch("SELECT * FROM ACCOUNTS")
+        tblAccountList = connection.Fetch("SELECT * FROM ACCOUNTS WHERE is_deleted=0")
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs)
@@ -16,7 +16,7 @@
     Private Sub initMaintainBalance()
         Dim sqlQuery As String
         tblMaintainBalance.Clear()
-        sqlQuery = "SELECT * FROM maintain_balance WHERE ukey = -1"
+        sqlQuery = "SELECT * FROM maintain_balance WHERE is_deleted=0 AND ukey = -1"
         tblMaintainBalance = connection.Fetch(sqlQuery)
     End Sub
     Private Sub enable()
@@ -163,7 +163,7 @@
                     Dim duration As String
                     Dim dateEntered As Date
                     'Check if Account Already exist
-                    tblCheckAccount = connection.Fetch("SELECT * FROM accounts WHERE number = '" + txtAccountNumber.Text.Trim + "'")
+                    tblCheckAccount = connection.Fetch($"SELECT * FROM accounts WHERE is_deleted=0 AND number = '{  txtAccountNumber.Text.Trim  }'")
 
                     tblCheckAccount.Rows.Clear()
                     If tblCheckAccount.Rows.Count <> 0 Then
@@ -183,15 +183,15 @@
                         tblAccountList.Fields("description") = txtDescription.Text.ToUpper.Trim
                         tblAccountList.Fields("opening_balance") = CStr(OpeningBalance)
                         tblAccountList.Fields("current_balance") = CStr(OpeningBalance)
-
+                        tblAccountList.Fields("is_deleted") = 0
                         tblAccountList.Update()
 
                         dateEntered = CDate(dtpOpeningDate.Value)
                         duration = CStr(dateEntered.Month) + "." + CStr(dateEntered.Year)
-                        sqlQuery = "INSERT INTO MAINTAIN_BALANCE (ACCOUNT_NUMBER, OPENING_BALANCE, CLOSING_BALANCE, DURATION,STATUS, UKEY) VALUES ('" + txtAccountNumber.Text.Trim + "','" + CStr(OpeningBalance) + "','0','" + duration + "',0, null)"
+                        sqlQuery = $"INSERT INTO MAINTAIN_BALANCE (ACCOUNT_NUMBER, OPENING_BALANCE, CLOSING_BALANCE, DURATION,STATUS, UKEY,IS_DELETED) VALUES ('{  txtAccountNumber.Text.Trim }','{CStr(OpeningBalance) }','0','{ duration }',0, null,0)"
                         connection.Execute(sqlQuery)
 
-                        sqlQuery = "INSERT INTO MAINTAIN_BALANCE_YEARLY (ACCOUNT_NUMBER, OPENING_BALANCE, CLOSING_BALANCE, YEARS, UKEY) VALUES ('" + txtAccountNumber.Text.Trim + "', '" + CStr(OpeningBalance) + "', '0','" + CStr(dateEntered.Year) + "', null)"
+                        sqlQuery = $"INSERT INTO MAINTAIN_BALANCE_YEARLY (ACCOUNT_NUMBER, OPENING_BALANCE, CLOSING_BALANCE, YEARS, UKEY,IS_DELETED) VALUES ('{ txtAccountNumber.Text.Trim }', '{ CStr(OpeningBalance) }', '0','{CStr(dateEntered.Year)}', null,0)"
                         connection.Execute(sqlQuery)
                         logger.createAccount(userID, txtAccountNumber.Text.Trim, txtOpeningBalance.Text.Trim)
                         MessageBox.Show("Account was created successfully", Application.ProductName)
@@ -236,6 +236,7 @@
 
 
     Private Sub toForm(i As Integer)
+        If tblAccountList.RowCount = 0 Then Exit Sub
         txtName.Text = tblAccountList.Rows(i).Item("name")
         txtAccountNumber.Text = tblAccountList.Rows(i).Item("number")
         txtBankName.Text = tblAccountList.Rows(i).Item("bank_name")
@@ -276,43 +277,48 @@
         Dim tblTransaction As New dbO.Table
 
         'Delete All Bank reconcilation related to the account number
-        sqlQuery = "DELETE FROM bank_reconcilation WHERE account_number = '" + account + "'"
+        'sqlQuery = "DELETE FROM bank_reconcilation WHERE account_number = '" + account + "'"
+        sqlQuery = $"UPDATE bank_reconcilation SET is_deleted=1 WHERE account_number='{account }' AND is_deleted=0"
         connection.Execute(sqlQuery)
 
         'Delete All Balance from related to the account number
-        sqlQuery = "DELETE FROM maintain_balance WHERE account_number = '" + account + "'"
+        'sqlQuery = "DELETE FROM maintain_balance WHERE account_number = '" + account + "'"
+        sqlQuery = $"UPDATE maintain_balance SET is_deleted=1 WHERE account_number='{account }' AND is_deleted=0"
         connection.Execute(sqlQuery)
 
         'Delete All Maitain Balance from relateed to the account number
-        sqlQuery = "DELETE FROM maintain_balance_yearly WHERE account_number = '" + account + "'"
+        'sqlQuery = "DELETE FROM maintain_balance_yearly WHERE account_number = '" + account + "'"
+        sqlQuery = $"UPDATE maintain_balance_yearly SET is_deleted=1 WHERE account_number='{account }' AND is_deleted=0"
         connection.Execute(sqlQuery)
 
         'Delete All the Transactions
-        sqlQuery = "SELECT * FROM transactions WHERE account_number = '" + account + "'"
-        tblTransaction.Clear()
+        sqlQuery = $"UPDATE transactions SET is_deleted=1 WHERE account_number='{account }' AND is_deleted=0"
+        'sqlQuery = "SELECT * FROM transactions WHERE account_number = '" + account + "'"
+        'tblTransaction.Clear()
 
-        tblTransaction = connection.Fetch(sqlQuery)
+        'tblTransaction = connection.Fetch(sqlQuery)
 
-        If tblTransaction.Rows.Count = 0 Then
+        'If tblTransaction.Rows.Count = 0 Then
 
-            sqlQuery = "DELETE FROM accounts WHERE number = '" + account + "'"
-            connection.Execute(sqlQuery)
-            Exit Sub
+        '    sqlQuery = "DELETE FROM accounts WHERE number = '" + account + "'"
+        '    connection.Execute(sqlQuery)
+        '    Exit Sub
 
-        End If
+        'End If
 
-        For i = 0 To tblTransaction.Rows.Count - 1
+        'For i = 0 To tblTransaction.Rows.Count - 1
 
-            'Go through All the Transactions and delete the supporting documents
-            sqlQuery = "DELETE FROM supporting_document WHERE transactions = " + CStr(tblTransaction.Rows(i).Item("ukey"))
-            connection.Execute(sqlQuery)
+        '    'Go through All the Transactions and delete the supporting documents
+        '    sqlQuery = "DELETE FROM supporting_document WHERE transactions = " + CStr(tblTransaction.Rows(i).Item("ukey"))
+        '    connection.Execute(sqlQuery)
 
-        Next i
+        'Next i
 
-        sqlQuery = "DELETE FROM transactions WHERE account_number = '" + account + "'"
+        'sqlQuery = "DELETE FROM transactions WHERE account_number = '" + account + "'"
         connection.Execute(sqlQuery)
 
-        sqlQuery = "DELETE FROM accounts WHERE number = '" + account + "'"
+        'sqlQuery = "DELETE FROM accounts WHERE number = '" + account + "'"
+        sqlQuery = $"UPDATE accounts SET is_deleted=1 WHERE number='{account }' AND is_deleted=0"
         connection.Execute(sqlQuery)
     End Sub
 

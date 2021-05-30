@@ -8,7 +8,7 @@
         Dim sqlQuery As String
         tblAccounts.Clear()
 
-        sqlQuery = "SELECT * FROM ACCOUNTS WHERE NUMBER = '" + CStr(accountNumber) + "'"
+        sqlQuery = $"SELECT * FROM ACCOUNTS WHERE NUMBER = '{CStr(accountNumber) }' AND is_deleted=0"
         tblAccounts = connection.Fetch(sqlQuery)
 
         If tblAccounts.Rows.Count = 0 Then Return ""
@@ -21,7 +21,7 @@
 
         tblBankReconcilation.Clear()
 
-        sqlQuery = "SELECT * FROM bank_reconcilation"
+        sqlQuery = "SELECT * FROM bank_reconcilation WHERE is_deleted=0"
         tblBankReconcilation = connection.Fetch(sqlQuery)
 
         grid.Rows.Clear()
@@ -80,7 +80,7 @@
     Private Sub grid_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles grid.CellClick
         If e.RowIndex < 0 Then Exit Sub
         rowIndex = e.RowIndex
-        lblDuration.Text = "Selected Account Name " + getAccountName(tblBankReconcilation.Rows(e.RowIndex).Item("account_number")) + " with the Account Number " + tblBankReconcilation.Rows(e.RowIndex).Item("account_number") + " for the Month of " + tblBankReconcilation.Rows(e.RowIndex).Item("duration")
+        lblDuration.Text = $"Selected Account Name { getAccountName(tblBankReconcilation.Rows(e.RowIndex).Item("account_number"))} with the Account Number { tblBankReconcilation.Rows(e.RowIndex).Item("account_number")} for the Month of { tblBankReconcilation.Rows(e.RowIndex).Item("duration")}"
     End Sub
 
     Private Sub btnReset_Click(sender As Object, e As EventArgs) Handles btnReset.Click
@@ -118,7 +118,7 @@
         duration = duration.Replace("/", ".")
 
         'Check if the financial month has been closed
-        sqlQuery = "SELECT * FROM maintain_balance WHERE account_number = '" + CStr(account) + "' AND duration = '" + CStr(duration) + "'"
+        sqlQuery = $"SELECT * FROM maintain_balance WHERE account_number = '{ CStr(account)}' AND duration = '{CStr(duration) }' AND is_deleted=0"
 
         tblMaintainMonthlyBalance.Clear()
         tblMaintainMonthlyBalance = connection.Fetch(sqlQuery)
@@ -134,11 +134,11 @@
             Case dialog.Yes
 
                 'Form and sql query using the duration of the transaction
-                sqlQuery = "UPDATE maintain_balance SET closing_balance = '0' WHERE account_number = '" + account + "' AND duration = '" + duration + "'"
+                sqlQuery = $"UPDATE maintain_balance SET closing_balance = '0' WHERE account_number = '{ account}' AND duration = '{ duration}' AND is_deleted=0"
                 connection.Execute(sqlQuery)
 
                 'Delete the record 
-                sqlQuery = "DELETE FROM bank_reconcilation WHERE ukey = " + CStr(tblBankReconcilation.Fields("ukey"))
+                sqlQuery = $"UPDATE bank_reconcilation SET is_deleted=1 WHERE is_deleted=0 AND ukey = {CStr(tblBankReconcilation.Fields("ukey"))}"
                 connection.Execute(sqlQuery)
 
                 logger.deleteBankReconcilation(userID, account, duration.Replace(".", "/"))

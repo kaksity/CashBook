@@ -21,7 +21,7 @@ Module main
 
         'Try
 
-        connection.ConnectionString = "server=localhost;user=SYSDBA;password=masterkey;database=" + CStr(Application.StartupPath) + "/CASH BOOK.FDB"
+        connection.ConnectionString = $"server=localhost;user=SYSDBA;password=masterkey;database={CStr(Application.StartupPath) }/CASH BOOK.FDB"
         connection.Open()
 
 

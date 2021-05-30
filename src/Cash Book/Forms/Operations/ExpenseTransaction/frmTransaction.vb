@@ -63,7 +63,7 @@
                     dateEntered = CDate(dtpDateOfTransaction.Value)
                     duration = CStr(dateEntered.Month) + "." + CStr(dateEntered.Year)
 
-                    sqlQuery = "SELECT * FROM maintain_balance WHERE account_number = '" + CStr(cboAccounts.SelectedValue) + "' AND duration = '" + duration + "'"
+                    sqlQuery = "SELECT * FROM maintain_balance WHERE account_number = '" + CStr(cboAccounts.SelectedValue) + "' AND duration = '" + duration + "' AND is_deleted=0"
                     tblMaintainBalance.Clear()
                     tblMaintainBalance = connection.Fetch(sqlQuery)
 
@@ -90,8 +90,8 @@
                     tblTransactions.Fields("description_of_transaction") = cboDescription.SelectedValue
                     tblTransactions.Fields("subhead_column") = txtSubheadColumn.Text.Trim.ToUpper
                     tblTransactions.Fields("ref_number") = txtRefNumber.Text.Trim
-                    tblTransactions.Fields("approved_by") = "kaksity"
-
+                    tblTransactions.Fields("approved_by") = CStr(userID)
+                    tblAccounts.Fields("is_deleted") = 0
                     tblTransactions.Update()
 
                     ''Update the current balance 
@@ -156,7 +156,7 @@
 
         tblAccounts.Clear()
 
-        sqlQuery = "SELECT * FROM ACCOUNTS"
+        sqlQuery = "SELECT * FROM ACCOUNTS WHERE is_deleted=0"
         tblAccounts = connection.Fetch(sqlQuery)
 
         If tblAccounts.Rows.Count = 0 Then Exit Sub
@@ -169,7 +169,7 @@
 
     Private Sub initializeTransaction()
         Dim sqlQuery As String
-        sqlQuery = "SELECT * FROM TRANSACTIONS WHERE UKEY = -1"
+        sqlQuery = "SELECT * FROM TRANSACTIONS WHERE is_deleted=0 AND UKEY = -1"
         tblTransactions.Clear()
         tblTransactions = connection.Fetch(sqlQuery)
     End Sub
@@ -181,7 +181,7 @@
         Dim tblDescription As New dbO.Table
 
         tblDescription.Clear()
-        tblDescription = connection.Fetch("SELECT * FROM transaction_description WHERE type_of_transaction = 'EXPENSE'")
+        tblDescription = connection.Fetch("SELECT * FROM transaction_description WHERE type_of_transaction = 'EXPENSE' AND is_deleted=0")
         If tblDescription.Rows.Count = 0 Then Exit Sub
 
         cboDescription.DisplayMember = "description_name"
@@ -198,7 +198,7 @@
     Private Sub cboAccounts_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboAccounts.SelectedIndexChanged
         Try
             tblAccounts.Move(cboAccounts.SelectedIndex)
-            lblAccountBalance.Text = "N" + FormatNumber(tblAccounts.Fields("current_balance"))
+            lblAccountBalance.Text = $"N{FormatNumber(tblAccounts.Fields("current_balance"))}"
         Catch
         End Try
     End Sub

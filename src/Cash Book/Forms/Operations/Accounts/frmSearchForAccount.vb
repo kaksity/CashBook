@@ -3,7 +3,13 @@
     Dim CloseAsAResultOfOkay = False
     Private Sub frmSearchForAccount_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         initGrid()
+        clear()
         loadGrid()
+    End Sub
+    Private Sub clear()
+        txtSearch.Text = ""
+        lblNumberOfFoundRecord.Text = ""
+        lblSearchResult.Text = ""
     End Sub
     Private Sub initGrid()
 
@@ -44,7 +50,7 @@
 
         tblAccountList.Clear()
 
-        tblAccountList = connection.FetchLight("SELECT * FROM ACCOUNTS")
+        tblAccountList = connection.FetchLight("SELECT * FROM ACCOUNTS WHERE is_deleted=0")
 
         lblNumberOfFoundRecord.Text = $"Records: {tblAccountList.RowCount }"
 

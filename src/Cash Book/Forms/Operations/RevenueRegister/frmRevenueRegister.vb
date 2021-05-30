@@ -42,7 +42,7 @@
 
     Private Sub loadAccountsData()
         Dim sqlQuery As String
-        sqlQuery = "SELECT * FROM accounts"
+        sqlQuery = "SELECT * FROM accounts WHERE is_deleted=0"
 
         tblAccounts.Rows.Clear()
         tblAccounts = connection.Fetch(sqlQuery)
@@ -62,7 +62,7 @@
         Dim tblDescription As New dbO.Table
 
         tblDescription.Clear()
-        tblDescription = connection.Fetch("SELECT * FROM transaction_description WHERE type_of_transaction = 'INCOME'")
+        tblDescription = connection.Fetch("SELECT * FROM transaction_description WHERE type_of_transaction = 'INCOME' AND is_deleted=0")
         If tblDescription.Rows.Count = 0 Then Exit Sub
 
         cboDescription.DisplayMember = "description_name"
@@ -131,7 +131,7 @@
                     dateEntered = CDate(dtpDateOfTransaction.Value)
                     duration = CStr(dateEntered.Month) + "." + CStr(dateEntered.Year)
 
-                    sqlQuery = "SELECT * FROM maintain_balance WHERE account_number = '" + CStr(cboAccount.SelectedValue) + "' AND duration = '" + duration + "'"
+                    sqlQuery = $"SELECT * FROM maintain_balance WHERE account_number = '{CStr(cboAccount.SelectedValue)}' AND duration = '{ duration }' AND is_deleted=0"
                     tblMaintainBalance.Clear()
                     tblMaintainBalance = connection.Fetch(sqlQuery)
 
@@ -157,7 +157,8 @@
                     tblTransactions.Fields("pv_or_rv_number") = txtRVNumber.Text.ToUpper.Trim
                     tblTransactions.Fields("description_of_transaction") = cboDescription.SelectedValue
                     tblTransactions.Fields("subhead_column") = txtSubhead.Text.Trim.ToUpper
-                    tblTransactions.Fields("approved_by") = "kaksity"
+                    tblTransactions.Fields("approved_by") = CStr(userID)
+                    tblAccounts.Fields("is_deleted") = 0
 
                     tblTransactions.Update()
 
@@ -184,7 +185,7 @@
     End Sub
     Private Sub initializeTransaction()
         Dim sqlQuery As String
-        sqlQuery = "SELECT * FROM TRANSACTIONS WHERE UKEY = -1"
+        sqlQuery = "SELECT * FROM TRANSACTIONS WHERE is_deleted=0 AND UKEY = -1"
         tblTransactions.Clear()
         tblTransactions = connection.Fetch(sqlQuery)
     End Sub
