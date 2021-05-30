@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Cash Book", "Cash Book\Cash Book.vbproj", "{0EB7C6AB-C6BA-4FDE-9A96-EA7763AB8A34}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Cash Book", "Cash Book.vbproj", "{0EB7C6AB-C6BA-4FDE-9A96-EA7763AB8A34}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
