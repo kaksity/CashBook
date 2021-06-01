@@ -15,7 +15,7 @@ Module main
 
 
     Public Sub main()
-        Dim startForm As New frmSplashScreen
+        Dim startForm As New frmClassSectionSettings
 
         'Try to Establish a database connection
 

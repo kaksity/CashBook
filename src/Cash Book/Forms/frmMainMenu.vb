@@ -717,4 +717,17 @@ Public Class frmMainMenu
     Private Sub RestoreToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles RestoreToolStripMenuItem.Click
         frmRestore.ShowDialog()
     End Sub
+
+    Private Sub SessionsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SessionsToolStripMenuItem.Click
+        frmSessionSettings.ShowDialog()
+    End Sub
+
+    Private Sub YearGroupToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles YearGroupToolStripMenuItem.Click
+        frmYearGroupSettings.ShowDialog()
+
+    End Sub
+
+    Private Sub ClassesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClassesToolStripMenuItem.Click
+        frmClassSectionSettings.ShowDialog()
+    End Sub
 End Class

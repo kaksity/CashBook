@@ -138,6 +138,36 @@
   <ItemGroup>
     <Compile Include="Classes\AccountReporter.vb" />
     <Compile Include="BankReconcilationReporter.vb" />
+    <Compile Include="Forms\frmRegisterStudent.Designer.vb">
+      <DependentUpon>frmRegisterStudent.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmRegisterStudent.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Settings\frmClassSectionSettings.Designer.vb">
+      <DependentUpon>frmClassSectionSettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Settings\frmClassSectionSettings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSchoolFees.Designer.vb">
+      <DependentUpon>frmSchoolFees.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmSchoolFees.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Settings\frmSessionSettings.Designer.vb">
+      <DependentUpon>frmSessionSettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Settings\frmSessionSettings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Settings\frmYearGroupSettings.Designer.vb">
+      <DependentUpon>frmYearGroupSettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Settings\frmYearGroupSettings.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Operations\Accounts\frmRDLViewPrintAccount.Designer.vb">
       <DependentUpon>frmRDLViewPrintAccount.vb</DependentUpon>
     </Compile>
@@ -355,6 +385,21 @@
     <Compile Include="Classes\util.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\frmRegisterStudent.resx">
+      <DependentUpon>frmRegisterStudent.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Settings\frmClassSectionSettings.resx">
+      <DependentUpon>frmClassSectionSettings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSchoolFees.resx">
+      <DependentUpon>frmSchoolFees.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Settings\frmSessionSettings.resx">
+      <DependentUpon>frmSessionSettings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Settings\frmYearGroupSettings.resx">
+      <DependentUpon>frmYearGroupSettings.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Operations\Accounts\frmRDLViewPrintAccount.resx">
       <DependentUpon>frmRDLViewPrintAccount.vb</DependentUpon>
     </EmbeddedResource>
