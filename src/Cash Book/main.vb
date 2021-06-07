@@ -15,24 +15,23 @@ Module main
 
 
     Public Sub main()
-        Dim startForm As New frmClassSectionSettings
+        Dim StartForm As New frmSplashScreen
 
         'Try to Establish a database connection
 
-        'Try
+        Try
 
-        connection.ConnectionString = $"server=localhost;user=SYSDBA;password=masterkey;database={CStr(Application.StartupPath) }/CASH BOOK.FDB"
-        connection.Open()
+            connection.ConnectionString = $"server=localhost;user=SYSDBA;password=masterkey;database={CStr(Application.StartupPath) }/CASH BOOK.FDB"
+            connection.Open()
 
 
             'Parameters
 
             Application.EnableVisualStyles()
 
-            Application.Run(startForm)
-            'Catch ex As Exception
-            '   Throw ex
+            Application.Run(StartForm)
+        Catch ex As Exception
             MessageBox.Show("Please Contact your Database administrator", Application.ProductName)
-        'End Try
+        End Try
     End Sub
 End Module

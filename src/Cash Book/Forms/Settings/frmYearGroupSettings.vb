@@ -62,6 +62,7 @@
         Disable()
     End Sub
 
+
     Private Sub Disable()
         BtnNew.Enabled = True
         BtnEdit.Enabled = True

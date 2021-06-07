@@ -41,7 +41,7 @@
         Grid.Rows.Add(1)
 
         Grid.Columns("ColsSession").ReadOnly = False
-        '   Grid.Rows(Grid.RowCount).Cells("ColsSNum").Value = Grid.RowCount + 1
+        Grid.Rows(Grid.RowCount - 1).Cells("ColsSNum").Value = Grid.RowCount
         Enable()
     End Sub
 
@@ -54,9 +54,11 @@
         IsNewRecord = False
         IsEditRecord = False
 
+        Disable()
+    End Sub
+    Private Sub RemoveExtraGridRow()
         Grid.Rows.RemoveAt(Grid.Rows.Count - 1)
         Grid.Columns("ColsSession").ReadOnly = True
-        Disable()
     End Sub
 
     Private Sub Disable()
@@ -75,6 +77,11 @@
         TblSessions.Clear()
         TblSessions = connection.Fetch("SELECT * FROM sessions WHERE is_deleted=0")
 
+        Grid.Rows.Clear()
+
+        If TblSessions.RowCount = 0 Then Exit Sub
+
+        Grid.Rows.Add(TblSessions.RowCount)
         For i = 0 To TblSessions.RowCount - 1
             TblSessions.Move(i)
             With Grid
@@ -94,6 +101,7 @@
     End Sub
     Private Sub BtnUndo_Click(sender As Object, e As EventArgs) Handles BtnUndo.Click
         Reset()
+        RemoveExtraGridRow()
     End Sub
 
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
@@ -103,8 +111,8 @@
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
         If IsNewRecord = True And IsEditRecord = False Then
             'Check if session has been typed
-            If Grid.Rows(Grid.RowCount).Cells("ColsSession").Value = "" Then
-                MessageBox.Show("Academic Session is required")
+            If Grid.Rows(Grid.RowCount - 1).Cells("ColsSession").Value = "" Then
+                MessageBox.Show("Academic Session is required", Application.ProductName)
                 Exit Sub
             End If
 
@@ -113,17 +121,18 @@
 
             TblCheckAcademicSession.Clear()
 
-            TblCheckAcademicSession = connection.Fetch($"SELECT * FROM sessions WHERE session= '{Grid.Rows(Grid.RowCount).Cells("ColsSession").Value}' AND is_deleted=0")
+            TblCheckAcademicSession = connection.FetchLight($"SELECT * FROM sessions WHERE session= '{Grid.Rows(Grid.RowCount - 1).Cells("ColsSession").Value}' AND is_deleted=0")
 
             If TblCheckAcademicSession.RowCount <> 0 Then
-                MessageBox.Show("Academic Session Already Exists")
+                MessageBox.Show("Academic Session Already Exists", Application.ProductName)
+                Grid.Rows(Grid.RowCount - 1).Cells("ColsSession").Value = ""
                 Exit Sub
             End If
 
             TblSessions.Addnew()
-            TblSessions.Fields("session") = Grid.Rows(Grid.RowCount).Cells("ColsSession").Value
+            TblSessions.Fields("session") = Grid.Rows(Grid.RowCount - 1).Cells("ColsSession").Value
+            TblSessions.Fields("is_deleted") = 0
             TblSessions.Update()
-
             LoadGridData()
             Reset()
         End If

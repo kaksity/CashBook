@@ -138,10 +138,10 @@
   <ItemGroup>
     <Compile Include="Classes\AccountReporter.vb" />
     <Compile Include="BankReconcilationReporter.vb" />
-    <Compile Include="Forms\frmRegisterStudent.Designer.vb">
+    <Compile Include="Forms\SchoolFees\frmRegisterStudent.Designer.vb">
       <DependentUpon>frmRegisterStudent.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmRegisterStudent.vb">
+    <Compile Include="Forms\SchoolFees\frmRegisterStudent.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Settings\frmClassSectionSettings.Designer.vb">
@@ -150,10 +150,16 @@
     <Compile Include="Forms\Settings\frmClassSectionSettings.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmSchoolFees.Designer.vb">
+    <Compile Include="Forms\SchoolFees\frmSchoolFees.Designer.vb">
       <DependentUpon>frmSchoolFees.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmSchoolFees.vb">
+    <Compile Include="Forms\SchoolFees\frmSchoolFees.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Settings\frmSchoolFeesSettings.Designer.vb">
+      <DependentUpon>frmSchoolFeesSettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Settings\frmSchoolFeesSettings.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Settings\frmSessionSettings.Designer.vb">
@@ -385,14 +391,17 @@
     <Compile Include="Classes\util.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Forms\frmRegisterStudent.resx">
+    <EmbeddedResource Include="Forms\SchoolFees\frmRegisterStudent.resx">
       <DependentUpon>frmRegisterStudent.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Settings\frmClassSectionSettings.resx">
       <DependentUpon>frmClassSectionSettings.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmSchoolFees.resx">
+    <EmbeddedResource Include="Forms\SchoolFees\frmSchoolFees.resx">
       <DependentUpon>frmSchoolFees.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Settings\frmSchoolFeesSettings.resx">
+      <DependentUpon>frmSchoolFeesSettings.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Settings\frmSessionSettings.resx">
       <DependentUpon>frmSessionSettings.vb</DependentUpon>

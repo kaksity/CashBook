@@ -730,4 +730,16 @@ Public Class frmMainMenu
     Private Sub ClassesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClassesToolStripMenuItem.Click
         frmClassSectionSettings.ShowDialog()
     End Sub
+
+    Private Sub RegisterStudentsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegisterStudentsToolStripMenuItem.Click
+        frmRegisterStudent.ShowDialog()
+    End Sub
+
+    Private Sub PaySchoolFeesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PaySchoolFeesToolStripMenuItem.Click
+        frmSchoolFees.ShowDialog()
+    End Sub
+
+    Private Sub SchoolFeesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SchoolFeesToolStripMenuItem.Click
+        frmSchoolFeesSettings.ShowDialog()
+    End Sub
 End Class

@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmClassSectionSettings
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,16 +20,16 @@ Partial Class frmClassSectionSettings
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmClassSectionSettings))
         Me.Grid = New System.Windows.Forms.DataGridView()
-        Me.CButton5 = New crsButton.cButton()
-        Me.CButton4 = New crsButton.cButton()
-        Me.CButton3 = New crsButton.cButton()
-        Me.CButton6 = New crsButton.cButton()
-        Me.CButton2 = New crsButton.cButton()
-        Me.CButton1 = New crsButton.cButton()
+        Me.BtnClose = New crsButton.cButton()
+        Me.BtnRemove = New crsButton.cButton()
+        Me.BtnUndo = New crsButton.cButton()
+        Me.BtnNew = New crsButton.cButton()
+        Me.BtnEdit = New crsButton.cButton()
+        Me.BtnSave = New crsButton.cButton()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.CboYearGroup = New System.Windows.Forms.ComboBox()
         CType(Me.Grid, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -41,104 +41,105 @@ Partial Class frmClassSectionSettings
         Me.Grid.Location = New System.Drawing.Point(12, 57)
         Me.Grid.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Grid.Name = "Grid"
+        Me.Grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.Grid.Size = New System.Drawing.Size(540, 328)
         Me.Grid.TabIndex = 9
         '
-        'CButton5
+        'BtnClose
         '
-        Me.CButton5.BackColor = System.Drawing.Color.Transparent
-        Me.CButton5.ButtonType = crsButton.cButton.btnType.close2
-        Me.CButton5.FlatAppearance.BorderSize = 0
-        Me.CButton5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.CButton5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
-        Me.CButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CButton5.Image = CType(resources.GetObject("CButton5.Image"), System.Drawing.Image)
-        Me.CButton5.Location = New System.Drawing.Point(467, 393)
-        Me.CButton5.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.CButton5.Name = "CButton5"
-        Me.CButton5.Size = New System.Drawing.Size(85, 55)
-        Me.CButton5.TabIndex = 4
-        Me.CButton5.UseVisualStyleBackColor = False
+        Me.BtnClose.BackColor = System.Drawing.Color.Transparent
+        Me.BtnClose.ButtonType = crsButton.cButton.btnType.close2
+        Me.BtnClose.FlatAppearance.BorderSize = 0
+        Me.BtnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.BtnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnClose.Image = CType(resources.GetObject("BtnClose.Image"), System.Drawing.Image)
+        Me.BtnClose.Location = New System.Drawing.Point(467, 393)
+        Me.BtnClose.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.BtnClose.Name = "BtnClose"
+        Me.BtnClose.Size = New System.Drawing.Size(85, 55)
+        Me.BtnClose.TabIndex = 4
+        Me.BtnClose.UseVisualStyleBackColor = False
         '
-        'CButton4
+        'BtnRemove
         '
-        Me.CButton4.BackColor = System.Drawing.Color.Transparent
-        Me.CButton4.ButtonType = crsButton.cButton.btnType.remove
-        Me.CButton4.FlatAppearance.BorderSize = 0
-        Me.CButton4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.CButton4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
-        Me.CButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CButton4.Image = CType(resources.GetObject("CButton4.Image"), System.Drawing.Image)
-        Me.CButton4.Location = New System.Drawing.Point(376, 393)
-        Me.CButton4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.CButton4.Name = "CButton4"
-        Me.CButton4.Size = New System.Drawing.Size(85, 55)
-        Me.CButton4.TabIndex = 5
-        Me.CButton4.UseVisualStyleBackColor = False
+        Me.BtnRemove.BackColor = System.Drawing.Color.Transparent
+        Me.BtnRemove.ButtonType = crsButton.cButton.btnType.remove
+        Me.BtnRemove.FlatAppearance.BorderSize = 0
+        Me.BtnRemove.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.BtnRemove.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.BtnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnRemove.Image = CType(resources.GetObject("BtnRemove.Image"), System.Drawing.Image)
+        Me.BtnRemove.Location = New System.Drawing.Point(376, 393)
+        Me.BtnRemove.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.BtnRemove.Name = "BtnRemove"
+        Me.BtnRemove.Size = New System.Drawing.Size(85, 55)
+        Me.BtnRemove.TabIndex = 5
+        Me.BtnRemove.UseVisualStyleBackColor = False
         '
-        'CButton3
+        'BtnUndo
         '
-        Me.CButton3.BackColor = System.Drawing.Color.Transparent
-        Me.CButton3.ButtonType = crsButton.cButton.btnType.undo
-        Me.CButton3.FlatAppearance.BorderSize = 0
-        Me.CButton3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.CButton3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
-        Me.CButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CButton3.Image = CType(resources.GetObject("CButton3.Image"), System.Drawing.Image)
-        Me.CButton3.Location = New System.Drawing.Point(285, 393)
-        Me.CButton3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.CButton3.Name = "CButton3"
-        Me.CButton3.Size = New System.Drawing.Size(85, 55)
-        Me.CButton3.TabIndex = 6
-        Me.CButton3.UseVisualStyleBackColor = False
+        Me.BtnUndo.BackColor = System.Drawing.Color.Transparent
+        Me.BtnUndo.ButtonType = crsButton.cButton.btnType.undo
+        Me.BtnUndo.FlatAppearance.BorderSize = 0
+        Me.BtnUndo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.BtnUndo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.BtnUndo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnUndo.Image = CType(resources.GetObject("BtnUndo.Image"), System.Drawing.Image)
+        Me.BtnUndo.Location = New System.Drawing.Point(285, 393)
+        Me.BtnUndo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.BtnUndo.Name = "BtnUndo"
+        Me.BtnUndo.Size = New System.Drawing.Size(85, 55)
+        Me.BtnUndo.TabIndex = 6
+        Me.BtnUndo.UseVisualStyleBackColor = False
         '
-        'CButton6
+        'BtnNew
         '
-        Me.CButton6.BackColor = System.Drawing.Color.Transparent
-        Me.CButton6.ButtonType = crsButton.cButton.btnType.new_
-        Me.CButton6.FlatAppearance.BorderSize = 0
-        Me.CButton6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.CButton6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
-        Me.CButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CButton6.Image = CType(resources.GetObject("CButton6.Image"), System.Drawing.Image)
-        Me.CButton6.Location = New System.Drawing.Point(12, 393)
-        Me.CButton6.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.CButton6.Name = "CButton6"
-        Me.CButton6.Size = New System.Drawing.Size(85, 55)
-        Me.CButton6.TabIndex = 7
-        Me.CButton6.UseVisualStyleBackColor = False
+        Me.BtnNew.BackColor = System.Drawing.Color.Transparent
+        Me.BtnNew.ButtonType = crsButton.cButton.btnType.new_
+        Me.BtnNew.FlatAppearance.BorderSize = 0
+        Me.BtnNew.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.BtnNew.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.BtnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnNew.Image = CType(resources.GetObject("BtnNew.Image"), System.Drawing.Image)
+        Me.BtnNew.Location = New System.Drawing.Point(12, 393)
+        Me.BtnNew.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.BtnNew.Name = "BtnNew"
+        Me.BtnNew.Size = New System.Drawing.Size(85, 55)
+        Me.BtnNew.TabIndex = 7
+        Me.BtnNew.UseVisualStyleBackColor = False
         '
-        'CButton2
+        'BtnEdit
         '
-        Me.CButton2.BackColor = System.Drawing.Color.Transparent
-        Me.CButton2.ButtonType = crsButton.cButton.btnType.edit
-        Me.CButton2.FlatAppearance.BorderSize = 0
-        Me.CButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.CButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
-        Me.CButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CButton2.Image = CType(resources.GetObject("CButton2.Image"), System.Drawing.Image)
-        Me.CButton2.Location = New System.Drawing.Point(103, 393)
-        Me.CButton2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.CButton2.Name = "CButton2"
-        Me.CButton2.Size = New System.Drawing.Size(85, 55)
-        Me.CButton2.TabIndex = 8
-        Me.CButton2.UseVisualStyleBackColor = False
+        Me.BtnEdit.BackColor = System.Drawing.Color.Transparent
+        Me.BtnEdit.ButtonType = crsButton.cButton.btnType.edit
+        Me.BtnEdit.FlatAppearance.BorderSize = 0
+        Me.BtnEdit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.BtnEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.BtnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnEdit.Image = CType(resources.GetObject("BtnEdit.Image"), System.Drawing.Image)
+        Me.BtnEdit.Location = New System.Drawing.Point(103, 393)
+        Me.BtnEdit.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.BtnEdit.Name = "BtnEdit"
+        Me.BtnEdit.Size = New System.Drawing.Size(85, 55)
+        Me.BtnEdit.TabIndex = 8
+        Me.BtnEdit.UseVisualStyleBackColor = False
         '
-        'CButton1
+        'BtnSave
         '
-        Me.CButton1.BackColor = System.Drawing.Color.Transparent
-        Me.CButton1.ButtonType = crsButton.cButton.btnType.save
-        Me.CButton1.FlatAppearance.BorderSize = 0
-        Me.CButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.CButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
-        Me.CButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CButton1.Image = CType(resources.GetObject("CButton1.Image"), System.Drawing.Image)
-        Me.CButton1.Location = New System.Drawing.Point(194, 393)
-        Me.CButton1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.CButton1.Name = "CButton1"
-        Me.CButton1.Size = New System.Drawing.Size(85, 55)
-        Me.CButton1.TabIndex = 3
-        Me.CButton1.UseVisualStyleBackColor = False
+        Me.BtnSave.BackColor = System.Drawing.Color.Transparent
+        Me.BtnSave.ButtonType = crsButton.cButton.btnType.save
+        Me.BtnSave.FlatAppearance.BorderSize = 0
+        Me.BtnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.BtnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.BtnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnSave.Image = CType(resources.GetObject("BtnSave.Image"), System.Drawing.Image)
+        Me.BtnSave.Location = New System.Drawing.Point(194, 393)
+        Me.BtnSave.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.BtnSave.Name = "BtnSave"
+        Me.BtnSave.Size = New System.Drawing.Size(85, 55)
+        Me.BtnSave.TabIndex = 3
+        Me.BtnSave.UseVisualStyleBackColor = False
         '
         'Label1
         '
@@ -166,19 +167,21 @@ Partial Class frmClassSectionSettings
         Me.Controls.Add(Me.CboYearGroup)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Grid)
-        Me.Controls.Add(Me.CButton5)
-        Me.Controls.Add(Me.CButton4)
-        Me.Controls.Add(Me.CButton3)
-        Me.Controls.Add(Me.CButton6)
-        Me.Controls.Add(Me.CButton2)
-        Me.Controls.Add(Me.CButton1)
+        Me.Controls.Add(Me.BtnClose)
+        Me.Controls.Add(Me.BtnRemove)
+        Me.Controls.Add(Me.BtnUndo)
+        Me.Controls.Add(Me.BtnNew)
+        Me.Controls.Add(Me.BtnEdit)
+        Me.Controls.Add(Me.BtnSave)
         Me.Font = New System.Drawing.Font("Arial Narrow", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "frmClassSectionSettings"
+        Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Class Section Settings"
+        Me.Text = "Cash Book - Class Section Settings"
         CType(Me.Grid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -186,12 +189,12 @@ Partial Class frmClassSectionSettings
     End Sub
 
     Friend WithEvents Grid As DataGridView
-    Friend WithEvents CButton5 As crsButton.cButton
-    Friend WithEvents CButton4 As crsButton.cButton
-    Friend WithEvents CButton3 As crsButton.cButton
-    Friend WithEvents CButton6 As crsButton.cButton
-    Friend WithEvents CButton2 As crsButton.cButton
-    Friend WithEvents CButton1 As crsButton.cButton
+    Friend WithEvents BtnClose As crsButton.cButton
+    Friend WithEvents BtnRemove As crsButton.cButton
+    Friend WithEvents BtnUndo As crsButton.cButton
+    Friend WithEvents BtnNew As crsButton.cButton
+    Friend WithEvents BtnEdit As crsButton.cButton
+    Friend WithEvents BtnSave As crsButton.cButton
     Friend WithEvents Label1 As Label
     Friend WithEvents CboYearGroup As ComboBox
 End Class

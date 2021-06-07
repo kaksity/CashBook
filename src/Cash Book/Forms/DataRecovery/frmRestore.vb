@@ -43,7 +43,10 @@ Public Class frmRestore
                 restore.BackupFiles.Add(file)
                 restore.Options = FbRestoreFlags.Replace
                 restore.Verbose = True
+
                 Try
+                    'connection.Close()
+                    connection.dbConnection.Close()
                     restore.Execute()
 
                     lblStatus.Text = "Restore Completed"

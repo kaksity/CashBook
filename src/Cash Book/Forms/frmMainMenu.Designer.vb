@@ -38,6 +38,9 @@ Partial Class frmMainMenu
         Me.BankReconcilationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CreateToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
         Me.CloseFinancialTransactionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SchoolToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RegisterStudentsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PaySchoolFeesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BackupToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ViewToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
@@ -48,6 +51,10 @@ Partial Class frmMainMenu
         Me.AccountsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TransactionDescriptionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BankReconcilationToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SessionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.YearGroupToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ClassesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DataRecoveryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LocalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BackUpToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -79,10 +86,7 @@ Partial Class frmMainMenu
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.tlbTransactionItems = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
-        Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SessionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.YearGroupToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ClassesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SchoolFeesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -97,7 +101,7 @@ Partial Class frmMainMenu
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.HelpToolStripMenuItem, Me.ReportsToolStripMenuItem, Me.SettingsToolStripMenuItem, Me.DataRecoveryToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.SchoolToolStripMenuItem, Me.HelpToolStripMenuItem, Me.ReportsToolStripMenuItem, Me.SettingsToolStripMenuItem, Me.DataRecoveryToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(5, 2, 0, 2)
@@ -195,6 +199,25 @@ Partial Class frmMainMenu
         Me.CloseFinancialTransactionToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
         Me.CloseFinancialTransactionToolStripMenuItem.Text = "Close Financial Transaction"
         '
+        'SchoolToolStripMenuItem
+        '
+        Me.SchoolToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegisterStudentsToolStripMenuItem, Me.PaySchoolFeesToolStripMenuItem})
+        Me.SchoolToolStripMenuItem.Name = "SchoolToolStripMenuItem"
+        Me.SchoolToolStripMenuItem.Size = New System.Drawing.Size(55, 20)
+        Me.SchoolToolStripMenuItem.Text = "Scho&ol"
+        '
+        'RegisterStudentsToolStripMenuItem
+        '
+        Me.RegisterStudentsToolStripMenuItem.Name = "RegisterStudentsToolStripMenuItem"
+        Me.RegisterStudentsToolStripMenuItem.Size = New System.Drawing.Size(165, 22)
+        Me.RegisterStudentsToolStripMenuItem.Text = "Register Students"
+        '
+        'PaySchoolFeesToolStripMenuItem
+        '
+        Me.PaySchoolFeesToolStripMenuItem.Name = "PaySchoolFeesToolStripMenuItem"
+        Me.PaySchoolFeesToolStripMenuItem.Size = New System.Drawing.Size(165, 22)
+        Me.PaySchoolFeesToolStripMenuItem.Text = "Pay School Fees"
+        '
         'HelpToolStripMenuItem
         '
         Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BackupToolStripMenuItem, Me.OrganizationToolStripMenuItem})
@@ -259,6 +282,31 @@ Partial Class frmMainMenu
         Me.BankReconcilationToolStripMenuItem1.Size = New System.Drawing.Size(197, 22)
         Me.BankReconcilationToolStripMenuItem1.Text = "Bank Reconcilation"
         '
+        'SettingsToolStripMenuItem
+        '
+        Me.SettingsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SessionsToolStripMenuItem, Me.YearGroupToolStripMenuItem, Me.ClassesToolStripMenuItem, Me.SchoolFeesToolStripMenuItem})
+        Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
+        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
+        Me.SettingsToolStripMenuItem.Text = "&Settings"
+        '
+        'SessionsToolStripMenuItem
+        '
+        Me.SessionsToolStripMenuItem.Name = "SessionsToolStripMenuItem"
+        Me.SessionsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SessionsToolStripMenuItem.Text = "Sessions"
+        '
+        'YearGroupToolStripMenuItem
+        '
+        Me.YearGroupToolStripMenuItem.Name = "YearGroupToolStripMenuItem"
+        Me.YearGroupToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.YearGroupToolStripMenuItem.Text = "Year Group"
+        '
+        'ClassesToolStripMenuItem
+        '
+        Me.ClassesToolStripMenuItem.Name = "ClassesToolStripMenuItem"
+        Me.ClassesToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ClassesToolStripMenuItem.Text = "Classes"
+        '
         'DataRecoveryToolStripMenuItem
         '
         Me.DataRecoveryToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LocalToolStripMenuItem})
@@ -270,7 +318,7 @@ Partial Class frmMainMenu
         '
         Me.LocalToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BackUpToolStripMenuItem1, Me.RestoreToolStripMenuItem})
         Me.LocalToolStripMenuItem.Name = "LocalToolStripMenuItem"
-        Me.LocalToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.LocalToolStripMenuItem.Size = New System.Drawing.Size(102, 22)
         Me.LocalToolStripMenuItem.Text = "&Local"
         '
         'BackUpToolStripMenuItem1
@@ -555,30 +603,11 @@ Partial Class frmMainMenu
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
         Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 32)
         '
-        'SettingsToolStripMenuItem
+        'SchoolFeesToolStripMenuItem
         '
-        Me.SettingsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SessionsToolStripMenuItem, Me.YearGroupToolStripMenuItem, Me.ClassesToolStripMenuItem})
-        Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
-        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
-        Me.SettingsToolStripMenuItem.Text = "&Settings"
-        '
-        'SessionsToolStripMenuItem
-        '
-        Me.SessionsToolStripMenuItem.Name = "SessionsToolStripMenuItem"
-        Me.SessionsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.SessionsToolStripMenuItem.Text = "Sessions"
-        '
-        'YearGroupToolStripMenuItem
-        '
-        Me.YearGroupToolStripMenuItem.Name = "YearGroupToolStripMenuItem"
-        Me.YearGroupToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.YearGroupToolStripMenuItem.Text = "Year Group"
-        '
-        'ClassesToolStripMenuItem
-        '
-        Me.ClassesToolStripMenuItem.Name = "ClassesToolStripMenuItem"
-        Me.ClassesToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.ClassesToolStripMenuItem.Text = "Classes"
+        Me.SchoolFeesToolStripMenuItem.Name = "SchoolFeesToolStripMenuItem"
+        Me.SchoolFeesToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SchoolFeesToolStripMenuItem.Text = "School Fees"
         '
         'frmMainMenu
         '
@@ -679,4 +708,8 @@ Partial Class frmMainMenu
     Friend WithEvents SessionsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents YearGroupToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ClassesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SchoolToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents RegisterStudentsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PaySchoolFeesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SchoolFeesToolStripMenuItem As ToolStripMenuItem
 End Class
